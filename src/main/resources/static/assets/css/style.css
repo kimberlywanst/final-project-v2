@@ -813,20 +813,42 @@ PUBLISH PAGE
 
 .section-publish .publish-area {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  margin: 100px 0 20px;
 }
 
 .section-publish .publish-title {
-  color: #000;
   font-size: 30px;
-  margin: 50px 0 20px;
   background: transparent;
   font-family: "Noto Serif", serif;
 }
 
+.section-publish .publish-area .publish-right {
+  display: flex;
+  align-items: center;
+}
+
 .section-publish .publish-image {
   background: transparent;
+}
+
+.section-publish .upload-image label {
+  color: var(--light-blue);
+  cursor: pointer;
+}
+
+.section-publish .upload-image label .fa {
+  font-size: 25px;
+}
+
+.section-publish .upload-image label:hover {
+  color: #8ab5d8;
+  transition: 0.2s all ease-in-out;
+}
+
+.section-publish .upload-image input#image {
+  display: none;
 }
 
 .section-publish .publish-button {
@@ -837,6 +859,7 @@ PUBLISH PAGE
   font-weight: 600;
   letter-spacing: 1px;
   padding: 10px;
+  margin-left: 25px;
 }
 
 .section-publish .publish-button:hover {
@@ -844,16 +867,8 @@ PUBLISH PAGE
   transition: 0.2s all ease-in-out;
 }
 
-/* .section-publish .edit {
-  background: transparent;
-  border: none;
-  resize: none;
-  outline: none;
-  padding-bottom: none;
-} */
-
 div.editable {
-  margin-top: 20px;
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
 }
 
