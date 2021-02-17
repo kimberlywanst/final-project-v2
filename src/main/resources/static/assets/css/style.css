@@ -808,29 +808,57 @@ PUBLISH PAGE
 */
 
 .section-publish {
-  padding: 0 40px;
+  padding-left: 40px;
 }
 
-.publish-title {
+.section-publish .publish-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-publish .publish-title {
+  color: #000;
   font-size: 30px;
   margin: 50px 0 20px;
+  background: transparent;
+  font-family: "Noto Serif", serif;
 }
 
-ul#medium-editor-toolbar-2 {
-  display: block;
+.section-publish .publish-image {
+  background: transparent;
 }
 
-.section-publish .edit {
+.section-publish .publish-button {
+  background: var(--light-blue);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 10px;
+}
+
+.section-publish .publish-button:hover {
+  background: #8ab5d8;
+  transition: 0.2s all ease-in-out;
+}
+
+/* .section-publish .edit {
   background: transparent;
   border: none;
   resize: none;
   outline: none;
   padding-bottom: none;
-}
+} */
 
 div.editable {
   margin-top: 20px;
   font-size: 16px;
+}
+
+div.medium-toolbar-arrow-under {
+  background: var(--light-blue);
 }
 
 ul.medium-editor-toolbar-actions li button {
@@ -847,22 +875,9 @@ ul.medium-editor-toolbar-actions li button:active {
   color: var(--light-grey);
 }
 
-.publish-button {
-  margin-right: 40px;
+.medium-editor-toolbar-input {
   background: var(--light-blue);
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  font-weight: 600;
-  letter-spacing: 1px;
-  padding: 10px;
-
-  /* width: 80px; */
-}
-
-.publish-button:hover {
-  background: #8ab5d8;
-  transition: 0.2s all ease-in-out;
+  color: #0d0d0d;
 }
 
 /*===== Stories ====*/
