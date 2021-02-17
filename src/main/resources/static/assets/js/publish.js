@@ -1,39 +1,39 @@
-const title = document.getElementById("title");
-const imageURL = document.getElementById("imageURL");
-const content = document.getElementById("content");
-const btnPublish = document.getElementById("btnPublish");
-let titleTextarea = null;
+// const title = document.getElementById("title");
+// const imageURL = document.getElementById("imageURL");
+// const content = document.getElementById("content");
+// const btnPublish = document.getElementById("btnPublish");
+// let titleTextarea = null;
 
 //////////////////////////////////////////////////////////////
 // Title editor
 //////////////////////////////////////////////////////////////
 
-const editStart = () => {
-  // Edit mode
-  titleTextarea = document.createElement("textarea");
-  titleTextarea.className = "edit";
-  titleTextarea.style.fontSize = "30px";
-  titleTextarea.value = title.innerHTML;
-  title.replaceWith(titleTextarea);
-  titleTextarea.focus();
+// const editStart = () => {
+//   // Edit mode
+//   titleTextarea = document.createElement("textarea");
+//   titleTextarea.className = "edit";
+//   titleTextarea.style.fontSize = "30px";
+//   titleTextarea.value = title.innerHTML;
+//   title.replaceWith(titleTextarea);
+//   titleTextarea.focus();
 
-  // Preview mode
-  titleTextarea.addEventListener("keydown", previewText);
-  titleTextarea.addEventListener("blur", editEnd);
-};
+//   // Preview mode
+//   titleTextarea.addEventListener("keydown", previewText);
+//   titleTextarea.addEventListener("blur", editEnd);
+// };
 
-title.addEventListener("click", editStart);
+// title.addEventListener("click", editStart);
 
-const previewText = (event) => {
-  if (event.key == "Enter") {
-    titleTextarea.blur();
-  }
-};
+// const previewText = (event) => {
+//   if (event.key == "Enter") {
+//     titleTextarea.blur();
+//   }
+// };
 
-const editEnd = () => {
-  title.innerHTML = titleTextarea.value;
-  titleTextarea.replaceWith(title);
-};
+// const editEnd = () => {
+//   title.innerHTML = titleTextarea.value;
+//   titleTextarea.replaceWith(title);
+// };
 
 //////////////////////////////////////////////////////////////
 // Title editor - Medium editor library
@@ -85,107 +85,107 @@ const editor = new MediumEditor(elements, {
 // Submit data to backend
 //////////////////////////////////////////////////////////////
 
-const submitPost = async () => {
-  alert("submitting");
+// const submitPost = async () => {
+//   alert("submitting");
 
-  const url = "https://kai-summerboot.herokuapp.com/post/new";
+//   const url = "https://kai-summerboot.herokuapp.com/post/new";
 
-  const request = {
-    method: "POST",
-    mode: "cors",
-    credentials: "include",
-    headers: {
-      Accept: "application/json",
-      "Content-type": "application/json",
-      "Access-Control-Allow-Origin": "*",
-    },
+//   const request = {
+//     method: "POST",
+//     mode: "cors",
+//     credentials: "include",
+//     headers: {
+//       Accept: "application/json",
+//       "Content-type": "application/json",
+//       "Access-Control-Allow-Origin": "*",
+//     },
 
-    //make sure to serialize your JSON body
-    body: JSON.stringify({
-      title: title,
-      content: content,
-      imageURL: imageURL,
-    }),
-  };
+//     //make sure to serialize your JSON body
+//     body: JSON.stringify({
+//       title: title,
+//       content: content,
+//       imageURL: imageURL,
+//     }),
+//   };
 
-  fetch(url, request)
-    .then((response) => response.json())
-    .then((response) => {
-      console.log(response);
-      return response;
-    })
-    // Display error otherwise
-    .catch((error) => {
-      console.log(`Request failed: ${error}`);
-    });
+//   fetch(url, request)
+//     .then((response) => response.json())
+//     .then((response) => {
+//       console.log(response);
+//       return response;
+//     })
+//     // Display error otherwise
+//     .catch((error) => {
+//       console.log(`Request failed: ${error}`);
+//     });
 
-  // Convert data to JSON
-  //   if (response.ok) {
-  //     const json = await response.json();
-  //     console.log(json);
-  //     return json;
-  //   }
-  //
-};
+//   // Convert data to JSON
+//   //   if (response.ok) {
+//   //     const json = await response.json();
+//   //     console.log(json);
+//   //     return json;
+//   //   }
+//   //
+// };
 
-btnPublish.addEventListener("click", submitPost);
+// btnPublish.addEventListener("click", submitPost);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Fetch attempt 5 - https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api?hl=en
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const btnSubmit = document.getElementById("btnSubmit");
+// const btnSubmit = document.getElementById("btnSubmit");
 
-const validateResponse = (response) => {
-  if (!response.ok) {
-    throw Error(response.statusText);
-  }
-  console.log(`Response: ${response}`);
-  return response;
-};
+// const validateResponse = (response) => {
+//   if (!response.ok) {
+//     throw Error(response.statusText);
+//   }
+//   console.log(`Response: ${response}`);
+//   return response;
+// };
 
-const readJSONResponse = (response) => {
-  console.log(`Response as JSON: ${response.json()}`);
-  return response.json();
-};
+// const readJSONResponse = (response) => {
+//   console.log(`Response as JSON: ${response.json()}`);
+//   return response.json();
+// };
 
-const logResult = (data) => {
-  console.log(data);
-};
+// const logResult = (data) => {
+//   console.log(data);
+// };
 
-const logError = (error) => {
-  console.log(error);
-};
+// const logError = (error) => {
+//   console.log(error);
+// };
 
-const fetchJSON = async () => {
-  const postTitle = title.textContent;
-  const postImage = imageURL.value;
-  const postContent = content.textContent;
+// const fetchJSON = async () => {
+//   const postTitle = title.textContent;
+//   const postImage = imageURL.value;
+//   const postContent = content.textContent;
 
-  const url = "https://kai-summerboot.herokuapp.com/post/new";
-  const urlToFetch = `${url}?title=${postTitle}&imageURL=${postImage}&content=${postContent}`;
+//   const url = "https://kai-summerboot.herokuapp.com/post/new";
+//   const urlToFetch = `${url}?title=${postTitle}&imageURL=${postImage}&content=${postContent}`;
 
-  const data = { postTitle, postImage, postContent };
+//   const data = { postTitle, postImage, postContent };
 
-  const options = {
-    method: "POST",
-    body: JSON.stringify(data),
+//   const options = {
+//     method: "POST",
+//     body: JSON.stringify(data),
 
-    // Set HTTP  request headers
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-  };
+//     // Set HTTP  request headers
+//     headers: {
+//       Accept: "application/json",
+//       "Content-Type": "application/json",
+//     },
+//   };
 
-  await fetch(urlToFetch, options) // Returns response object as promise
-    .then(validateResponse) // Check if response status 200-299
-    .then(readJSONResponse) // Returns promise as JSON data
-    .then(logResult)
-    .catch(logError);
-};
+//   await fetch(urlToFetch, options) // Returns response object as promise
+//     .then(validateResponse) // Check if response status 200-299
+//     .then(readJSONResponse) // Returns promise as JSON data
+//     .then(logResult)
+//     .catch(logError);
+// };
 
-btnSubmit.addEventListener("click", fetchJSON);
+// btnSubmit.addEventListener("click", fetchJSON);
 
 //////////////////////////////////////////////////////////////
 // Fetch attempt 4

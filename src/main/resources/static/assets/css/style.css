@@ -808,29 +808,72 @@ PUBLISH PAGE
 */
 
 .section-publish {
-  padding: 0 40px;
+  padding-left: 40px;
 }
 
-.publish-title {
+.section-publish .publish-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 100px 0 20px;
+}
+
+.section-publish .publish-title {
   font-size: 30px;
-  margin: 50px 0 20px;
-}
-
-ul#medium-editor-toolbar-2 {
-  display: block;
-}
-
-.section-publish .edit {
   background: transparent;
+  font-family: "Noto Serif", serif;
+}
+
+.section-publish .publish-area .publish-right {
+  display: flex;
+  align-items: center;
+}
+
+.section-publish .publish-image {
+  background: transparent;
+}
+
+.section-publish .upload-image label {
+  color: var(--light-blue);
+  cursor: pointer;
+}
+
+.section-publish .upload-image label .fa {
+  font-size: 25px;
+}
+
+.section-publish .upload-image label:hover {
+  color: #8ab5d8;
+  transition: 0.2s all ease-in-out;
+}
+
+.section-publish .upload-image input#image {
+  display: none;
+}
+
+.section-publish .publish-button {
+  background: var(--light-blue);
   border: none;
-  resize: none;
-  outline: none;
-  padding-bottom: none;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 10px;
+  margin-left: 25px;
+}
+
+.section-publish .publish-button:hover {
+  background: #8ab5d8;
+  transition: 0.2s all ease-in-out;
 }
 
 div.editable {
-  margin-top: 20px;
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
+}
+
+div.medium-toolbar-arrow-under {
+  background: var(--light-blue);
 }
 
 ul.medium-editor-toolbar-actions li button {
@@ -847,22 +890,9 @@ ul.medium-editor-toolbar-actions li button:active {
   color: var(--light-grey);
 }
 
-.publish-button {
-  margin-right: 40px;
+.medium-editor-toolbar-input {
   background: var(--light-blue);
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  font-weight: 600;
-  letter-spacing: 1px;
-  padding: 10px;
-
-  /* width: 80px; */
-}
-
-.publish-button:hover {
-  background: #8ab5d8;
-  transition: 0.2s all ease-in-out;
+  color: #0d0d0d;
 }
 
 /*===== Stories ====*/
