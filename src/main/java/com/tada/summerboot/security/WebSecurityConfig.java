@@ -6,6 +6,7 @@ import com.tada.summerboot.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -33,10 +34,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		//DO NOT EDIT
 		//do not authenticate these APIs
 		web.ignoring()
-				.antMatchers("/css/**")
-				.antMatchers("/js/**")
-				.antMatchers("/images/**")
-
+				.antMatchers("/assets/**")
+				.antMatchers("/every-users")
 				.antMatchers("/user-photos/**")
 				.antMatchers("/products/**")
 				.antMatchers("/posts/**")
@@ -49,6 +48,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 			.authorizeRequests()
 				.antMatchers("/").permitAll()
+				.antMatchers("/register").permitAll()
+				.antMatchers(HttpMethod.POST,"/user/new").permitAll()
 				.antMatchers("/product").hasRole("ADMIN")
 				.anyRequest().authenticated()
 				.and()
