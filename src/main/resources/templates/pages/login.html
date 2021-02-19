@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -49,30 +50,28 @@
   <main role="main-inner-wrapper" class="container">
     <div class="row">
       <div class="col-md-6">
-        <form method="post" action="php/contactfrom.php" name="cform" id="cform">
-          <input style="
+        <form th:action="@{/login}" method="post">
+          <input name="username" style="
                 border: none;
                 border-bottom: 1px solid black;
                 background-color: transparent;
                 font-size: xx-large;
-              " ; name="userEmail" id="userEmail" type="text" placeholder="Email" />
+              " ; nameX="userEmail" id="userEmail" type="text" placeholder="Email" />
 
           <div class="clearfix"></div>
 
-          <input style="
+          <input name="password" style="
                 border: none;
                 border-bottom: 1px solid black;
                 background-color: transparent;
                 font-size: xx-large;
-              " ; name="userPassword" id="userPassword" type="text" placeholder="Password" />
+              " ; nameX="userPassword" id="userPassword" type="password" placeholder="Password" />
 
           <div class="clearfix"></div>
 
           <div class="clearfix"></div>
 
-          <button onclick="login()" type="button" class="btn btn-info" style="margin-top: 2%">
-            Login
-          </button>
+          <div><input type="submit" value="Sign In"/></div>
         </form>
         <br />
         <p>Don't have an account? <a href="#signUpForm" data-toggle="modal" data-target="#signUpForm">Sign up here</a>

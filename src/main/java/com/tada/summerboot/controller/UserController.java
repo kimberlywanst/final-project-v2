@@ -19,7 +19,7 @@ public class UserController {
     @PostMapping(path="/user/new")
     public String newUser(User newUser) {
         user_service_implementation.createUser(newUser);
-        return "redirect:/every-users";
+        return "redirect:/login";
     }
 
     @GetMapping(path="/login")
