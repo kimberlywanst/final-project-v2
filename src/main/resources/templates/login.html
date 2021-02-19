@@ -19,33 +19,37 @@
 </head>
 
 <body>
-<header role="header">
-    <div class="container">
-        <h1 role="logo">
-            <a href="../index.html" title="KAI"><img src="../assets/images/kai-logo.png" class="img-fluid" title="KAI logo"
-                                                     alt="KAI logo" /></a>
-        </h1>
 
-        <div class="header-nav-wrapper"></div>
+<div th:insert="fragments/navHeader.html :: navHeader"> </div>
 
-        <nav role="header-nav" class="navy">
-            <ul>
-                <li>
-                    <a href="../index.html" title="Home">Home</a>
-                </li>
-                <li>
-                    <a href="about.html" title="About">About</a>
-                </li>
-                <li>
-                    <a href="profile.html" title="Profile">Profile</a>
-                </li>
-                <li class="nav-active">
-                    <a href="login.html" title="Login">Login</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</header>
+<!--<header role="header">-->
+<!--    <div class="container">-->
+<!--        <h1 role="logo">-->
+<!--            <a href="../index.html" title="KAI"><img src="../assets/images/kai-logo.png" class="img-fluid" title="KAI logo"-->
+<!--                                                     alt="KAI logo" /></a>-->
+<!--        </h1>-->
+
+<!--        <div class="header-nav-wrapper"></div>-->
+
+
+<!--        <nav role="header-nav" class="navy">-->
+<!--            <ul>-->
+<!--                <li>-->
+<!--                    <a href="../index.html" title="Home">Home</a>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                    <a href="about.html" title="About">About</a>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                    <a href="profile.html" title="Profile">Profile</a>-->
+<!--                </li>-->
+<!--                <li class="nav-active">-->
+<!--                    <a href="login.html" title="Login">Login</a>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </nav>-->
+<!--    </div>-->
+<!--</header>-->
 
 <main role="main-inner-wrapper" class="container">
     <div class="row">
@@ -122,41 +126,8 @@
     </div>
 </main>
 
-<footer role="footer">
-    <h1 role="logo">
-        <a href="../index.html" title="KAI"><img src="../assets/images/kai-logo.png" title="KAI logo"
-                                                 alt="KAI logo" /></a>
-    </h1>
+<div th:insert="fragments/footer.html :: footer"> </div>
 
-    <nav role="footer-nav">
-        <ul>
-            <li><a href="../index.html" title="Work">Work</a></li>
-            <li><a href="about.html" title="About">About</a></li>
-            <li><a href="blog.html" title="Blog">Blog</a></li>
-            <li><a href="contact.html" title="Contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <ul role="social-icons">
-        <li>
-            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-        </li>
-
-        <li>
-            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-        </li>
-
-        <li>
-            <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-        </li>
-
-        <li>
-            <a href="#"><i class="fa fa-flickr" aria-hidden="true"></i></a>
-        </li>
-    </ul>
-
-    <p class="copy-right">&copy; 2020 KAI All Rights Reserved</p>
-</footer>
 
 <script src="../assets/js/jquery.min.js"></script>
 <script src="../assets/js/nav.js"></script>
