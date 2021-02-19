@@ -7,7 +7,7 @@
     <title>Register User</title>
 </head>
 <body>
-<h1>New User</h1>
+<h1>Sign up here</h1>
 <form th:action="@{/user/new}" th:object="${user}" method="POST">
     <div><label> Name: <input type="text" th:field="*{username}" name="username"/> </label></div>
     <div><label> Email: <input type="text" th:field="*{email}" name="email"/> </label></div>
@@ -18,9 +18,9 @@
     <div><input type="submit" value="New User"/></div>
 </form>
 
-<div>
-    <a href="/every-users">Go back to every users</a> <br>
-</div>
+<!--<div>-->
+<!--    <a href="/every-users">Go back to every users</a> <br>-->
+<!--</div>-->
 </body>
 </body>
 </html>
