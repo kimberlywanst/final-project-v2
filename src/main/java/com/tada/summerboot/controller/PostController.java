@@ -36,8 +36,18 @@ public class PostController {
         Optional <User> user = user_service_implementation.getUser( post.get().getUser_id());
         model.addAttribute("user", user.get());
         //$(user.username)?
-        return "show-post-with-username";
+        return "show-post-with-usernameX";
     }
+
+//    @GetMapping(path="/post/show-username/{id}", produces = { MediaType.APPLICATION_JSON_VALUE })
+//    public String showUserName(Model model, @PathVariable("id") Integer id) {
+//        Optional <Post> post = post_service_implementation.getPost(id);
+//        model.addAttribute("post", post.get());
+//        Optional <User> user = user_service_implementation.getUser( post.get().getUser_id());
+//        model.addAttribute("user", user.get());
+//        //$(user.username)?
+//        return "show-post-with-username";
+//    }
 
     @GetMapping(value="post-image") // it will be set to be /product
     public String postWithImage(Model model){
