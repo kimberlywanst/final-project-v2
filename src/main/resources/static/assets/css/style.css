@@ -831,12 +831,13 @@ PUBLISH PAGE
 
 .section-publish .publish-image {
   background: transparent;
+  margin-bottom: 10px;
 }
 
-.section-publish .upload-image label {
+/* .section-publish .upload-image label {
   color: var(--light-blue);
   cursor: pointer;
-}
+} */
 
 .section-publish .upload-image label .fa {
   font-size: 25px;
@@ -847,11 +848,12 @@ PUBLISH PAGE
   transition: 0.2s all ease-in-out;
 }
 
-.section-publish .upload-image input#image {
+/* .section-publish .upload-image input#image {
   display: none;
-}
+} */
 
-.section-publish .publish-button {
+.section-publish .publish-button,
+.section-publish .upload-image .upload-button {
   background: var(--light-blue);
   border: none;
   border-radius: 5px;
