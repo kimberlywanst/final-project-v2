@@ -67,15 +67,24 @@ public class PostController {
         return "every-posts-no-table";
     }
 
-
     @GetMapping(value="/individual-post")
     public String everypostByIndividual(Model model){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = user_service_implementation.current_user(auth.getName());
         List<Post> list = post_service_implementation.findAllByUserId(user.getId());
         model.addAttribute("posts", list);
-        return "individual-post";
+        model.addAttribute("user", user);
+        return "every-posts-by-single-userX";
     }
+
+//    @GetMapping(value="/individual-post")
+//    public String everypostByIndividual(Model model){
+//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//        User user = user_service_implementation.current_user(auth.getName());
+//        List<Post> list = post_service_implementation.findAllByUserId(user.getId());
+//        model.addAttribute("posts", list);
+//        return "individual-post";
+//    }
 
     @GetMapping(value="/every-posts") // it will be set to be /product
     public String everyposts(Model model){
