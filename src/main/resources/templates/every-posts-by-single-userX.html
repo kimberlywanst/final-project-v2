@@ -85,6 +85,7 @@
         <div th:each="post : ${posts}">
           <article>
             <h2 th:text="${post.title}"></h2>
+            <div th:text="${post.imageURL}"></div>
             <img th:src="${post.imageURL}" alt="" class="img-responsive" />
             <a th:href="@{post/edit/{id}(id=${post.id})}">
               <button>Edit</button>
@@ -93,7 +94,7 @@
               <button>Delete</button>
             </a>
             <p th:utext="${post.content}"></p>
-            <a th:href="@{post/show-username/{id}(id=${post.id})}"
+            <a th:href="@{posts/show-username/{id}(id=${post.id})}"
               >Read more &rarr;</a
             >
             <!-- <a href="/post/show-username/{id}">Read more &rarr;</a> -->

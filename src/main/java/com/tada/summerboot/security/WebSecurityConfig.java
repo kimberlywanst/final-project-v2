@@ -39,9 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/assets/**")
 				.antMatchers("/every-users")
 				.antMatchers("/user-photos/**")
-				.antMatchers("/products/**")
 				.antMatchers("/posts/**")
-				.antMatchers("/products/json/**") //is this necessary?
 				.antMatchers("/users/**");
 	}
 	@Override
@@ -53,7 +51,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/register").permitAll()
 				.antMatchers(HttpMethod.POST,"/user/new").permitAll()
 //				.antMatchers(HttpMethod.GET,"/post/show/{id}").permitAll()
-				.antMatchers("/product").hasRole("ADMIN")
 				.anyRequest().authenticated()
 				.and()
 			.formLogin()

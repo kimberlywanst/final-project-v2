@@ -29,7 +29,7 @@ public class PostController {
     @Autowired
     UserServiceImpl user_service_implementation;
 
-    @GetMapping(path="/post/show-username/{id}", produces = { MediaType.APPLICATION_JSON_VALUE })
+    @GetMapping(path="/posts/show-username/{id}")
     public String showUserName(Model model, @PathVariable("id") Integer id) {
         Optional <Post> post = post_service_implementation.getPost(id);
         model.addAttribute("post", post.get());
