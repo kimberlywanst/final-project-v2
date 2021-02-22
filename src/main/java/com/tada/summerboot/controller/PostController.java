@@ -131,6 +131,9 @@ public class PostController {
     @GetMapping(path="/post/show/{id}", produces = { MediaType.APPLICATION_JSON_VALUE })
     public String show(Model model, @PathVariable("id") Integer id) {
         Optional <Post> post = post_service_implementation.getPost(id);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = user_service_implementation.current_user(auth.getName());
+        model.addAttribute("user", user);
         model.addAttribute("post", post);
         return "show-post";
     }
