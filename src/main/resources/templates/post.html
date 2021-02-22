@@ -1,111 +1,46 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1"
-    />
     <meta charset="utf-8" />
-    <meta name="description" content="" />
-    <title>KAI | Publish</title>
-    <link
-      rel="shortcut icon"
-      href="../assets/images/kai-favicon.ico"
-      type="image/icon type"
-    />
-    <link href="../assets/css/style.css" rel="stylesheet" />
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="../assets/css/responsive.css" rel="stylesheet" />
-    <link href="../assets/css/fonts.css" rel="stylesheet" />
-    <link href="../assets/css/font-awesome.min.css" rel="stylesheet" />
-    <link
-      rel="stylesheet"
-      href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css"
-      type="text/css"
-      media="screen"
-      charset="utf-8"
-    />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Create Product</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
 
   <body>
-    <header role="header">
-      <div class="container">
-        <h1 role="logo">
-          <a href="../index.html" title="KAI"
-            ><img
-              src="../assets/images/kai-logo.png"
-              class="img-fluid"
-              title="KAI logo"
-              alt="KAI logo"
-          /></a>
-        </h1>
-
-        <div class="header-nav-wrapper"></div>
-
-        <nav role="header-nav" class="navy">
-          <ul>
-            <li>
-              <a href="../index.html" title="Home">Home</a>
-            </li>
-            <li>
-              <a href="about.html" title="About">About</a>
-            </li>
-            <li>
-              <a href="profile.html" title="Profile">Profile</a>
-            </li>
-            <li>
-              <a href="../../templates/login.html" title="Login">Login</a>
-            </li>
-          </ul>
-        </nav>
+    <h3>Add/Edit Post</h3>
+    <form action="#" th:action="@{/post/new}" th:object="${post}" method="post">
+      <div>
+        <label for="title">Title</label>
+        <input type="text" th:field="*{title}" id="title" placeholder="Title" />
       </div>
-    </header>
+      <div>
+        <label for="content">Description</label>
+        <input
+          type="text"
+          th:field="*{content}"
+          id="content"
+          placeholder="content"
+        />
+      </div>
+      <div>
+        <label for="imageURL">imageURL</label>
+        <input
+          type="text"
+          th:field="*{imageURL}"
+          id="imageURL"
+          placeholder="**"
+        />
+      </div>
 
-    <main role="main-inner-wrapper" class="container">
-      <section class="section-publish">
-        <form
-          action="#"
-          th:action="@{/post/new}"
-          th:object="${post}"
-          method="post"
-        >
-          <div class="publish-area">
-            <input
-              class="publish-title"
-              type="text"
-              id="title"
-              th:field="*{title}"
-              placeholder="Title"
-            />
+      <input type="hidden" id="user_id" name="user_id" th:value="${user.id}" />
+      <input type="hidden" id="id" name="id" th:value="${id}" />
 
-            <button type="submit" class="publish-button">Publish</button>
-          </div>
-          <hr />
+      <div>
+        <input type="submit" value=" Submit " />
+      </div>
+    </form>
 
-          <input
-            class="publish-image"
-            name="imageURL"
-            id="imageURL"
-            type="text"
-            placeholder="image URL"
-            th:field="*{imageURL}"
-          />
-
-          <!-- Medium editor -->
-          <textarea
-            class="editable"
-            id="content"
-            th:field="*{content}"
-          ></textarea>
-          <input type="hidden" id="id" th:field="*{id}" />
-        </form>
-      </section>
-    </main>
-
-    <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
-    <script src="../assets/js/publish.js"></script>
-    <script src="../assets/js/jquery.min.js"></script>
-    <script src="../assets/js/nav.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
+    <div><a href="/every-posts">Go back to every post</a> <br /></div>
   </body>
 </html>
