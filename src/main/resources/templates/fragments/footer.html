@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Footer</title>
+</head>
+<body>
+<footer th:fragment="footer" role="footer">
+        <h1 role="logo">
+            <a href="../index.html" title="KAI"><img src="../assets/images/kai-logo.png" title="KAI logo"
+                                                     alt="KAI logo" /></a>
+        </h1>
+
+        <nav role="footer-nav">
+            <ul>
+                <li><a href="../index.html" title="Work">Work</a></li>
+                <li><a href="/pages/about.html" title="About">About</a></li>
+                <li><a href="blog.html" title="Blog">Blog</a></li>
+                <li><a href="contact.html" title="Contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <ul role="social-icons">
+            <li>
+                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            </li>
+
+            <li>
+                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            </li>
+
+            <li>
+                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+            </li>
+
+            <li>
+                <a href="#"><i class="fa fa-flickr" aria-hidden="true"></i></a>
+            </li>
+        </ul>
+
+        <p class="copy-right">&copy; 2020 KAI All Rights Reserved</p>
+</footer>
+</body>
+</html>

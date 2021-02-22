@@ -34,6 +34,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		//DO NOT EDIT
 		//do not authenticate these APIs
 		web.ignoring()
+				.antMatchers("/pages/**")
+
 				.antMatchers("/assets/**")
 				.antMatchers("/every-users")
 				.antMatchers("/user-photos/**")
@@ -50,6 +52,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/").permitAll()
 				.antMatchers("/register").permitAll()
 				.antMatchers(HttpMethod.POST,"/user/new").permitAll()
+//				.antMatchers(HttpMethod.GET,"/post/show/{id}").permitAll()
 				.antMatchers("/product").hasRole("ADMIN")
 				.anyRequest().authenticated()
 				.and()
