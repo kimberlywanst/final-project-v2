@@ -86,8 +86,12 @@
           <article>
             <h2 th:text="${post.title}"></h2>
             <img th:src="${post.imageURL}" alt="" class="img-responsive" />
-            <button>Edit</button>
-            <button>Delete</button>
+            <a th:href="@{post/edit/{id}(id=${post.id})}">
+              <button>Edit</button>
+            </a>
+            <a th:href="@{post/delete/{id}(id=${post.id})}">
+              <button>Delete</button>
+            </a>
             <p th:utext="${post.content}"></p>
             <a th:href="@{post/show-username/{id}(id=${post.id})}"
               >Read more &rarr;</a
