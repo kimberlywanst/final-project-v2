@@ -164,15 +164,31 @@ public class PostController {
         return "redirect:/every-posts";
     }
 
-    @RequestMapping(path = {"post/edit", "post/edit/{id}"})
+    @GetMapping(path = "/post/edit/{id}")
     public String editPost(Model model, @PathVariable("id") Integer id)
     {
         if (id != null) { // when id is null, because it is not in the database
-            Optional<Post> entity = post_service_implementation.getPost(id);
-            model.addAttribute("post", entity.get());
+//            Optional<Post> entity = post_service_implementation.getPost(id);
+//            model.addAttribute("post", entity.get());
+            Optional<Post> post = post_service_implementation.getPost(id);
+            Optional <User> user = user_service_implementation.getUser( post.get().getUser_id());
+            model.addAttribute("user", user.get());
+            model.addAttribute("post", post.get());
         } else { //else id is present, then we will just create a new entry in the database
             model.addAttribute("post", new Post());
         }
-        return "post";
+        return "post-image";
     }
+
+//    @RequestMapping(path = {"post/edit", "post/edit/{id}"})
+//    public String editPost(Model model, @PathVariable("id") Integer id)
+//    {
+//        if (id != null) { // when id is null, because it is not in the database
+//            Optional<Post> entity = post_service_implementation.getPost(id);
+//            model.addAttribute("post", entity.get());
+//        } else { //else id is present, then we will just create a new entry in the database
+//            model.addAttribute("post", new Post());
+//        }
+//        return "post";
+//    }
 }
