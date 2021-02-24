@@ -4,6 +4,8 @@ package com.tada.summerboot.model;
 //import lombok.Setter;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
+import java.time.ZonedDateTime;
 
 //@Getter
 //@Setter
@@ -17,11 +19,23 @@ public class Post {
     @Column(nullable = true) // allow null value in this column
     private String title;
 
-    @Column(nullable = true) // allow null value in this column
+    @Column(nullable = true, columnDefinition="TEXT") // allow null value in this column
     private String content;
 
     @Column(nullable = true) // allow null value in this column
     private String imageURL;
+
+
+    @Column(nullable = true) // allow null value in this column
+    private Timestamp timestamp;
+
+    public Timestamp getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
+    }
 
     // Required for the @OneToMany relationship with a User
     @Column(name = "user_id")
@@ -96,4 +110,21 @@ public class Post {
         this.user_id = user_id;
         this.imageURL = imageURL;
     }
+
+    public Post(String title, String content, Integer user_id, String imageURL, Timestamp timestamp) {
+        this.title = title;
+        this.content = content;
+        this.user_id = user_id;
+        this.imageURL = imageURL;
+        this.timestamp = timestamp;
+    }
+
+    public Post(String title, String content, Integer user_id, Timestamp timestamp) {
+        this.title = title;
+        this.content = content;
+        this.user_id = user_id;
+        this.timestamp = timestamp;
+    }
+
+
 }
