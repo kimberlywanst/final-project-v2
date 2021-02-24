@@ -91,7 +91,7 @@
               <button>Edit</button>
             </a>
             <a th:href="@{post/delete/{id}(id=${post.id})}">
-              <button>Delete</button>
+              <button onclick="return confirm('Are you sure you want to delete this item')">Delete</button>
             </a>
             <p th:utext="${post.content}"></p>
             <a th:href="@{posts/show-username/{id}(id=${post.id})}"
