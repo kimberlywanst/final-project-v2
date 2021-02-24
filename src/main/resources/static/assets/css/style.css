@@ -962,116 +962,6 @@ section.blog-content:hover figure img {
 
 /*
 ==========================================================================================
-CONTACT PAGE
-==========================================================================================
-*/
-
-article[role="pge-title-content"].contact-header {
-  padding-bottom: 218px;
-}
-
-article[role="pge-title-content"].contact-header p a {
-  color: #343434;
-  padding-right: 34px;
-}
-
-article[role="pge-title-content"].contact-header p a:hover {
-  color: var(--light-blue);
-  text-decoration: none;
-}
-
-.demo-wrapper {
-  width: 100%;
-  margin: 0 auto;
-  height: 499px;
-}
-
-#surabaya {
-  width: 100%;
-  height: 100%;
-}
-
-.error_message {
-  color: #e84d49;
-}
-
-#success_page h3,
-#success_page p {
-  color: #60ca6f;
-}
-
-.contat-from-wrapper {
-  padding: 0 69px;
-  margin-top: 108px;
-}
-
-.contat-from-wrapper input[type="text"],
-.contat-from-wrapper input[type="email"],
-.contat-from-wrapper textarea {
-  width: 100%;
-  display: block;
-  outline: none;
-  border-bottom: 1px solid #bbbbbb;
-  background-color: inherit;
-  color: #404040;
-  font-size: 21px;
-  line-height: 23px;
-  padding-bottom: 24px;
-}
-
-.contat-from-wrapper input[type="text"]:focus,
-.contat-from-wrapper input[type="email"]:focus,
-.contat-from-wrapper textarea:focus {
-  border-bottom-color: #9f9e9e;
-}
-
-.contat-from-wrapper form ::-webkit-input-placeholder {
-  color: #404040;
-}
-
-.contat-from-wrapper form ::-moz-placeholder {
-  color: #404040;
-} /* firefox 19+ */
-
-.contat-from-wrapper form :-ms-input-placeholder {
-  color: #404040;
-} /* ie */
-
-.contat-from-wrapper form input:-moz-placeholder {
-  color: #404040;
-}
-
-.contat-from-wrapper textarea {
-  border-bottom: 1px solid #bbbbbb;
-  border-left: none;
-  border-right: none;
-  border-top: none;
-  height: 77px;
-  margin-top: 56px;
-}
-
-.contat-from-wrapper input[type="submit"] {
-  display: block;
-  border: none;
-  outline: none;
-  width: 200px;
-  line-height: 60px;
-  text-transform: uppercase;
-  font-size: 21px;
-  color: #fff;
-  font-weight: 800;
-  letter-spacing: 2px;
-  background-color: #e84d49;
-  margin: 41px auto;
-  margin-bottom: 0;
-}
-
-.contat-from-wrapper input[type="submit"]:hover {
-  background-color: #f8524e;
-}
-
-/*
-==========================================================================================
 ARTICLES
 ==========================================================================================
 */
@@ -1151,58 +1041,86 @@ ARTICLES
   margin: 40px 20px;
 }
 
-/*== Work Details ==*/
+/*
+==========================================================================================
+LOGIN & REGISTER PAGE
+==========================================================================================
+*/
 
-.work-details,
-.blog-details {
-  padding: 0 69px;
-  margin-top: 73px;
+main[role="main-inner-wrapper"] div.row {
+  display: flex;
+  justify-content: center;
 }
 
-.work-details header h2 {
-  color: #343434;
-  font-size: 36px;
-  font-weight: 800;
+section.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 65vh;
+  max-height: 100%;
+  max-width: 400px;
+  background: #fff;
+  box-shadow: 0 14px 28px var(--light-blue), 0 10px 10px rgba(0, 0, 0, 0.25);
+  /* box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.25); */
+  border-radius: 15px;
+  padding: 30px 20px;
+  margin: 80px 0;
 }
 
-.work-details header a {
-  display: inline-block;
-  color: var(--light-blue);
-  font-size: 18px;
-  font-weight: 800;
-  padding-top: 3px;
+section.form-container-register {
+  height: 75vh;
 }
 
-.work-details header a i {
-  color: #0d0d0d;
-  padding-left: 10px;
+section.form-container form {
+  display: flex;
+  flex-direction: column;
 }
 
-.work-details header a:hover {
-  color: #0d0d0d;
-  text-decoration: none;
+section.form-container form img {
+  width: 100%;
+  max-width: 100px;
+  height: auto;
+  margin: 0 auto;
 }
 
-.work-details header a:hover i {
-  color: var(--light-blue);
+section.form-container form h1 {
+  font-family: "Noto Serif", serif;
+  text-align: center;
+  font-size: 30px;
+  padding-bottom: 20px;
 }
 
-.work-details p {
-  font-size: 16px;
-  color: #666666;
-  line-height: 30px;
-  margin-bottom: 20px;
-  font-weight: 300;
+section.form-container form input {
+  background: var(--light-grey);
+  padding: 8px 20px;
+  margin: 10px 0 20px;
+  width: 100%;
+  border-radius: 5px;
 }
 
-.work-details p strong {
-  font-weight: 800;
+section.form-container form input:focus {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px var(--light-blue);
 }
 
-.work-images {
-  margin-top: 46px;
+section.form-container form button {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  background: var(--light-blue);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 10px;
+  margin: 25px 0;
 }
 
-.work-images li {
-  margin-bottom: 50px;
+section.form-container form button:hover {
+  background: #8ab5d8;
+  transition: 0.2s all ease-in-out;
+}
+
+section.form-container form p {
+  text-align: center;
 }
