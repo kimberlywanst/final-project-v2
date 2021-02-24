@@ -194,7 +194,7 @@ public class PostController {
         } else { //else id is present, then we will just create a new entry in the database
             model.addAttribute("post", new Post());
         }
-        return "post";
+        return "post-image";
     }
 
 
