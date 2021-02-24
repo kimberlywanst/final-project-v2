@@ -1,7 +1,6 @@
 package com.tada.summerboot.controller;
 
 import com.tada.summerboot.component.FileUploadUtil;
-import com.tada.summerboot.model.Product;
 import org.springframework.ui.Model;
 import com.tada.summerboot.model.Post;
 import com.tada.summerboot.model.User;
@@ -17,6 +16,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 
@@ -70,6 +71,7 @@ public class PostController {
     @GetMapping(value="/individual-post")
     public String everypostByIndividual(Model model){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        System.out.println("->" + auth.getName());
         User user = user_service_implementation.current_user(auth.getName());
         List<Post> list = post_service_implementation.findAllByUserId(user.getId());
         model.addAttribute("posts", list);
@@ -96,6 +98,7 @@ public class PostController {
     @GetMapping(value="/post") // it will be set to be /product
     public String post(Model model){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        System.out.println("->" + auth.getName());
         User user = user_service_implementation.current_user(auth.getName());
 
         model.addAttribute("user", user);
@@ -110,10 +113,10 @@ public class PostController {
                                       @RequestParam(name="image") MultipartFile multipartFile) throws IOException {
 
         String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-
-        Post new_post = new Post(title, content, user_id);
+        Post new_post = new Post(title, content, user_id, new Timestamp(Calendar.getInstance().getTime().getTime()));
+//        Post new_post = new Post(title, content, user_id);
         post_service_implementation.createOrUpdatePost(new_post);
-        new_post.setImageURL("user-photos/uploads/"+ new_post.getId() + "/" + fileName);
+        new_post.setImageURL("/user-photos/uploads/"+ new_post.getId() + "/" + fileName);
         post_service_implementation.createOrUpdatePost(new_post);
 
         String uploadDir = "src/main/resources/static/user-photos/uploads/" + new_post.getId();
@@ -134,7 +137,7 @@ public class PostController {
                           @RequestParam(name="content", required = false) String content,
                           @RequestParam(name="user_id", required = false) Integer user_id,
                           @RequestParam(name="imageURL", required = false) String imageURL) {
-        post_service_implementation.createPost(new Post(title, content, user_id, imageURL));
+        post_service_implementation.createPost(new Post(title, content, user_id, imageURL, new Timestamp(Calendar.getInstance().getTime().getTime())));
         // This will redirect to the every product page.
         return "redirect:/every-posts";
     }
@@ -164,12 +167,26 @@ public class PostController {
         return "redirect:/every-posts";
     }
 
-    @GetMapping(path = "/post/edit/{id}")
+//    @GetMapping(path = "/post/edit/{id}")
+//    public String editPost(Model model, @PathVariable("id") Integer id)
+//    {
+//        if (id != null) { // when id is null, because it is not in the database
+////            Optional<Post> entity = post_service_implementation.getPost(id);
+////            model.addAttribute("post", entity.get());
+//            Optional<Post> post = post_service_implementation.getPost(id);
+//            Optional <User> user = user_service_implementation.getUser( post.get().getUser_id());
+//            model.addAttribute("user", user.get());
+//            model.addAttribute("post", post.get());
+//        } else { //else id is present, then we will just create a new entry in the database
+//            model.addAttribute("post", new Post());
+//        }
+//        return "post-image";
+//    }
+
+    @RequestMapping(path = {"post/edit", "post/edit/{id}"})
     public String editPost(Model model, @PathVariable("id") Integer id)
     {
         if (id != null) { // when id is null, because it is not in the database
-//            Optional<Post> entity = post_service_implementation.getPost(id);
-//            model.addAttribute("post", entity.get());
             Optional<Post> post = post_service_implementation.getPost(id);
             Optional <User> user = user_service_implementation.getUser( post.get().getUser_id());
             model.addAttribute("user", user.get());
@@ -177,18 +194,8 @@ public class PostController {
         } else { //else id is present, then we will just create a new entry in the database
             model.addAttribute("post", new Post());
         }
-        return "post-image";
+        return "post";
     }
 
-//    @RequestMapping(path = {"post/edit", "post/edit/{id}"})
-//    public String editPost(Model model, @PathVariable("id") Integer id)
-//    {
-//        if (id != null) { // when id is null, because it is not in the database
-//            Optional<Post> entity = post_service_implementation.getPost(id);
-//            model.addAttribute("post", entity.get());
-//        } else { //else id is present, then we will just create a new entry in the database
-//            model.addAttribute("post", new Post());
-//        }
-//        return "post";
-//    }
+
 }
