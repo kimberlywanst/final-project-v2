@@ -354,7 +354,8 @@ main[role="main-home-wrapper"] {
 }
 
 main[role="main-inner-wrapper"] {
-  padding-bottom: 50px;
+  margin-bottom: 70px;
+  margin-top: 50px;
 }
 
 main[role="main-home-wrapper"] article[role="pge-title-content"],
@@ -495,9 +496,14 @@ ABOUT PAGE
 ==========================================================================================
 */
 
+main[role="main-inner-wrapper"] .about-quote {
+  margin-right: 40px;
+}
+
 main[role="main-inner-wrapper"] .about-title {
   font-family: "Noto Serif", serif;
   color: var(--light-blue);
+  padding-bottom: 20px;
 }
 
 main[role="main-inner-wrapper"] .about-content {
@@ -521,9 +527,81 @@ main[role="main-inner-wrapper"] .about-content p {
 }
 
 main[role="main-inner-wrapper"] .align-center h2 {
+  font-family: "Noto Serif", serif;
+  font-size: 40px;
   padding: 40px 0 0 15px;
+  margin-bottom: 60px;
 }
 
+.about-section {
+  display: grid;
+  padding-left: 15px;
+}
+
+.about-section .about-profile {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0 100px;
+  margin-bottom: 60px;
+  height: 400px;
+}
+
+.about-section .about-profile figure.about-card {
+  grid-column: 1 / 2;
+  background: #fff;
+  box-shadow: 0 14px 28px var(--light-blue), 0 10px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 20px 20px 40px;
+}
+
+.about-section .about-profile figure.about-card img {
+  max-width: 100%;
+  height: auto;
+}
+
+.about-section .about-profile .about-profile-details {
+  grid-column: 2 / 4;
+  align-self: center;
+}
+
+.about-section .about-profile .about-profile-details h3 {
+  font-family: "Noto Serif", serif;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.about-section .about-profile .about-profile-details h4 {
+  font-size: 20px;
+}
+
+.about-section .about-profile .about-profile-details p {
+  font-size: 20px;
+  margin: 20px 0 20px;
+}
+
+.about-section .about-profile .about-profile-details ul.social-icons li {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.about-section .about-profile .about-profile-details ul.social-icons li a {
+  color: var(--light-blue);
+  font-size: 25px;
+  text-align: center;
+  padding-right: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.about-section
+  .about-profile
+  .about-profile-details
+  ul.social-icons
+  li
+  a:hover {
+  color: var(--dark-grey);
+}
+
+/*
 main[role="main-inner-wrapper"] .thumbnails-pan {
   padding-top: 30px;
   display: flex;
@@ -550,22 +628,9 @@ section.blog-content article {
   transition-timing-function: ease;
 }
 
-/* .image */
-main[role="main-inner-wrapper"] .thumbnails-pan section figure img {
-  height: 600px;
-  object-fit: cover;
-
-  /* backface-visibility: hidden; */
-}
-
-/* .middle */
 main[role="main-inner-wrapper"] .thumbnails-pan section figure figcaption {
   position: absolute;
-  /* bottom: -50%;
-  left: 0;
-  right: 0; */
   background-color: var(--light-blue);
-  /* margin: 0 20px; */
   text-align: center;
   color: var(--light-grey);
   font-weight: 500;
@@ -581,7 +646,7 @@ main[role="main-inner-wrapper"] .thumbnails-pan section figure figcaption {
   -ms-transform: translate(-50%, -50%);
 }
 
-/* .container:hover .middle */
+
 main[role="main-inner-wrapper"]
   .thumbnails-pan
   section
@@ -589,6 +654,7 @@ main[role="main-inner-wrapper"]
   figcaption {
   opacity: 1;
 }
+*/
 
 /* main[role="main-inner-wrapper"]
   .thumbnails-pan
@@ -608,7 +674,7 @@ main[role="main-inner-wrapper"]
 } */
 
 /* .container:hover .image */
-main[role="main-inner-wrapper"] .thumbnails-pan section figure:hover img {
+/* main[role="main-inner-wrapper"] .thumbnails-pan section figure:hover img {
   opacity: 0.5;
   webkit-filter: blur(4px);
   filter: blur(4px);
@@ -688,6 +754,7 @@ main[role="main-inner-wrapper"]
   background-color: var(--light-grey);
   color: var(--light-blue);
 }
+ */
 
 /*
 ==========================================================================================
