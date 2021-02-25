@@ -526,23 +526,22 @@ main[role="main-inner-wrapper"] .about-content p {
   padding-bottom: 20px;
 }
 
-main[role="main-inner-wrapper"] .align-center h2 {
-  font-family: "Noto Serif", serif;
-  font-size: 40px;
-  padding: 40px 0 0 15px;
-  margin-bottom: 60px;
-}
-
 .about-section {
   display: grid;
   padding-left: 15px;
 }
 
+.about-section h2 {
+  font-family: "Noto Serif", serif;
+  font-size: 40px;
+  padding: 60px 0;
+}
+
 .about-section .about-profile {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0 100px;
-  margin-bottom: 60px;
+  gap: 0 120px;
+  margin-bottom: 100px;
   height: 400px;
 }
 
@@ -600,161 +599,6 @@ main[role="main-inner-wrapper"] .align-center h2 {
   a:hover {
   color: var(--dark-grey);
 }
-
-/*
-main[role="main-inner-wrapper"] .thumbnails-pan {
-  padding-top: 30px;
-  display: flex;
-  flex-direction: row;
-}
-
-main[role="main-inner-wrapper"] .thumbnails-pan section figure {
-  background-color: var(--light-grey);
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-main[role="main-inner-wrapper"] .thumbnails-pan section figure,
-main[role="main-inner-wrapper"] .thumbnails-pan section figure,
-img,
-main[role="main-inner-wrapper"] .thumbnails-pan section figure figcaption,
-section.blog-content figure,
-section.blog-content figure img,
-section.blog-content article {
-  transition-delay: 0s;
-  transition-duration: 0.5s;
-  transition-property: all;
-  transition-timing-function: ease;
-}
-
-main[role="main-inner-wrapper"] .thumbnails-pan section figure figcaption {
-  position: absolute;
-  background-color: var(--light-blue);
-  text-align: center;
-  color: var(--light-grey);
-  font-weight: 500;
-  font-size: 16px;
-  padding: 20px;
-
-  width: 100%;
-  transition: 0.5s ease;
-  opacity: 0;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-}
-
-
-main[role="main-inner-wrapper"]
-  .thumbnails-pan
-  section
-  figure:hover
-  figcaption {
-  opacity: 1;
-}
-*/
-
-/* main[role="main-inner-wrapper"]
-  .thumbnails-pan
-  section
-  figure:hover
-  figcaption {
-  bottom: 50%;
-} */
-
-/* main[role="main-inner-wrapper"]
-  .thumbnails-pan
-  section
-  figure
-  figcaption:hover {
-  position: absolute;
-  bottom: 50%;
-} */
-
-/* .container:hover .image */
-/* main[role="main-inner-wrapper"] .thumbnails-pan section figure:hover img {
-  opacity: 0.5;
-  webkit-filter: blur(4px);
-  filter: blur(4px);
-}
-
-main[role="main-inner-wrapper"] .thumbnails-pan section figure:hover,
-section.blog-content:hover article {
-  background-color: var(--light-blue);
-  color: var(--light-grey);
-}
-
-main[role="main-inner-wrapper"]
-  .thumbnails-pan
-  section
-  figure
-  .card-img-overlay {
-  padding: 30px;
-}
-
-main[role="main-inner-wrapper"]
-  .thumbnails-pan
-  section
-  figure
-  .card-img-overlay
-  h5 {
-  font-size: 16px;
-}
-
-main[role="main-inner-wrapper"]
-  .thumbnails-pan
-  section
-  figure
-  .card-img-overlay
-  ul[role="social-icons"] {
-  text-align: left;
-  padding-top: 10px;
-}
-
-main[role="main-inner-wrapper"]
-  .thumbnails-pan
-  section
-  figure
-  .card-img-overlay
-  ul[role="social-icons"]
-  li {
-  display: inline-block;
-  margin: 0 5px;
-}
-
-main[role="main-inner-wrapper"]
-  .thumbnails-pan
-  section
-  figure
-  .card-img-overlay
-  ul[role="social-icons"]
-  li
-  a {
-  display: block;
-  background-color: var(--dark-grey);
-  color: #fff;
-  font-size: 20px;
-  border-radius: 100%;
-  width: 42px;
-  height: 42px;
-  text-align: center;
-  line-height: 42px;
-}
-
-main[role="main-inner-wrapper"]
-  .thumbnails-pan
-  section
-  figure:hover
-  .card-img-overlay
-  ul[role="social-icons"]
-  li
-  a {
-  background-color: var(--light-grey);
-  color: var(--light-blue);
-}
- */
 
 /*
 ==========================================================================================
