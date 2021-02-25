@@ -31,7 +31,7 @@
     <div th:insert="fragments/navHeader.html :: navHeader"></div>
 
     <main role="main-inner-wrapper" class="container">
-      <div class="row">
+      <div class="row form-container-outer">
         <div th:if="${param.error}">Invalid username and password.</div>
         <div th:if="${param.logout}">You have been logged out.</div>
 
