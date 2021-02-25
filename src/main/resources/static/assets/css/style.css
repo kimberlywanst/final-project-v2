@@ -497,6 +497,7 @@ ABOUT PAGE
 
 main[role="main-inner-wrapper"] .about-title {
   font-family: "Noto Serif", serif;
+  color: var(--light-blue);
 }
 
 main[role="main-inner-wrapper"] .about-content {
