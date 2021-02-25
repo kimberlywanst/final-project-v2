@@ -92,7 +92,7 @@ public class PostController {
     public String everyposts(Model model){
         List<Post> posts = post_service_implementation.getAllPosts();
         model.addAttribute("posts", posts); // this will pass the value to a ${user}
-        return "every-posts";
+        return "every-postsX";
     }
 
     @GetMapping(value="/post") // it will be set to be /product
