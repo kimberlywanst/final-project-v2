@@ -99,8 +99,8 @@
 
                 <figcaption>
                   <h2 th:text="${post.title}">Title</h2>
-                  <p th:text="${user.username}">User</p>
-                  <a th:href="@{/post/show/{id}(id=${post.id})}">View more</a>
+                  <p th:text="${post.id}">User</p>
+                  <a th:href="@{/posts/show-username/{id}(id=${post.id})}">View more</a>
                 </figcaption>
               </figure>
             </li>
