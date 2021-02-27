@@ -989,9 +989,9 @@ section.form-container form {
 
 section.form-container form img {
   width: 100%;
-  max-width: 100px;
+  max-width: 60px;
   height: auto;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 
 section.form-container form h1 {
