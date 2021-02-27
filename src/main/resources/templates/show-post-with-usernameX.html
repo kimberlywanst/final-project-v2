@@ -24,7 +24,6 @@
   </head>
 
   <body>
-    <h1>HELLO</h1>
     <header role="header">
       <div class="container">
         <h1 role="logo">
@@ -63,16 +62,13 @@
         <article class="post-details" id="post-details">
           <header role="blog-header" class="blog-header text-center">
             <h2 th:text="${post.title}"></h2>
-            <h3>Date</h3>
-            <h4 th:text="${user.username}"></h4>
+            <h3>by <span th:text="${user.username}"></span></h3>
+            <h4 th:text="${post.timestamp}"></h4>
           </header>
 
-           <figure>
-          <div th:text="${post.imageURL}"></div>
-
-          <img th:src="${post.imageURL}" alt="" class="img-responsive" />
-<!--          <img th:src="${post.imageURL}" class="img-responsive" />-->
-           </figure>
+          <figure>
+            <img th:src="${post.imageURL}" alt="" class="img-responsive" />
+          </figure>
 
           <div th:utext="${post.content}" class="enter-content"></div>
         </article>
