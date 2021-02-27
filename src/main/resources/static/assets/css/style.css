@@ -740,9 +740,13 @@ PUBLISH PAGE
   font-family: "Noto Serif", serif;
 }
 
-.section-publish .publish-area .publish-right {
+.publish-right {
   display: flex;
   align-items: center;
+}
+
+.publish-right .publish-button {
+  margin-right: 20px;
 }
 
 .section-publish .publish-image {
@@ -750,13 +754,23 @@ PUBLISH PAGE
   margin-bottom: 10px;
 }
 
-/* .section-publish .upload-image label {
+.section-publish .upload-image {
+  margin-bottom: 20px;
+}
+
+.section-publish .upload-image label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  width: max-content;
   color: var(--light-blue);
   cursor: pointer;
-} */
+}
 
 .section-publish .upload-image label .fa {
   font-size: 25px;
+  padding-right: 10px;
 }
 
 .section-publish .upload-image label:hover {
@@ -764,11 +778,16 @@ PUBLISH PAGE
   transition: 0.2s all ease-in-out;
 }
 
-/* .section-publish .upload-image input#image {
-  display: none;
-} */
+.section-publish .upload-image label:active {
+  color: #8ab5d8;
+  transition: 0.2s all ease-in-out;
+}
 
-.section-publish .publish-button,
+.section-publish .upload-image input#image {
+  display: none;
+}
+
+.publish-right .publish-button,
 .section-publish .upload-image .upload-button {
   background: var(--light-blue);
   border: none;
@@ -777,10 +796,9 @@ PUBLISH PAGE
   font-weight: 600;
   letter-spacing: 1px;
   padding: 10px;
-  margin-left: 25px;
 }
 
-.section-publish .publish-button:hover {
+.publish-right .publish-button:hover {
   background: #8ab5d8;
   transition: 0.2s all ease-in-out;
 }
