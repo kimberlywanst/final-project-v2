@@ -88,7 +88,7 @@
   }
 }
 
-/* xs - mobile */
+/* xs - tablet */
 
 @media (max-width: 767px) {
   main[role="main-inner-wrapper"] {
@@ -263,24 +263,40 @@
   .reply-pan {
     margin-left: 20px;
   }
+}
 
-  /*
-==========================================================================================
-	LOGIN & REGISTER
-==========================================================================================
-*/
-
+@media (max-width: 480px) {
   section.form-container {
     margin: 40px 30px;
   }
 
-  /*
-==========================================================================================
-	INDIVIDUAL POST
-==========================================================================================
-*/
   .blog-details .post-details .enter-content {
     margin-top: 62px;
     padding: 0 20px;
+  }
+
+  section.user-profile .profile-info h3 {
+    font-size: 26px;
+  }
+
+  section.user-profile {
+    padding: 15px;
+    margin: 0 20px 40px;
+  }
+
+  section.user-profile .profile-mobile {
+    display: flex;
+    flex-direction: column;
+  }
+
+  section.user-profile .profile-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  section.user-profile .write-post {
+    display: flex;
+    justify-content: unset;
+    flex-direction: column;
   }
 }

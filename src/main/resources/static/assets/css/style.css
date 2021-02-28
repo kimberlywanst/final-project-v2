@@ -608,25 +608,32 @@ PROFILE PAGE
 
 section.user-profile {
   display: flex;
-  margin: 80px 0;
-  padding: 60px;
-  border: 1px solid #404040;
-  border-color: var(--dark-grey);
-  border-radius: 5px;
-  box-shadow: #a3cef1 10px 12px;
+  justify-content: space-around;
+  align-items: center;
+  background: #fff;
+  box-shadow: 0 14px 28px var(--light-blue), 0 10px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  padding: 30px;
+  margin-bottom: 50px;
+  width: 100%;
+  max-width: 550px;
 }
 
 section.user-profile .profile-image {
-  margin-right: 60px;
-}
-
-section.user-profile .profile-image img {
-  width: 200px;
+  display: inline-block;
+  background-color: #5de6de;
+  background-image: linear-gradient(315deg, #5de6de 0%, #b58ecc 74%);
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  margin-right: 50px;
 }
 
 section.user-profile .profile-info {
   display: flex;
   flex-direction: column;
+  margin-right: 30px;
+  flex-grow: 1;
 }
 
 section.user-profile .profile-info h3 {
@@ -641,6 +648,10 @@ section.user-profile .profile-social {
 
 section.user-profile .profile-social p {
   padding-right: 15px;
+}
+
+section.user-profile .write-post {
+  display: flex;
 }
 
 section.user-profile button {
@@ -665,56 +676,58 @@ section.user-articles {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-section.user-articles h2 {
-  font-family: "Noto Serif", serif;
-  padding-bottom: 20px;
+  text-align: center;
 }
 
 section.user-articles article {
-  margin-bottom: 70px;
+  margin-bottom: 40px;
 }
 
-section.user-articles article img {
-  position: relative;
-}
-
-section.user-articles .post-date {
+section.user-articles article .post-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   text-align: center;
-  color: var(--light-grey);
-  font-weight: 800;
-  font-size: 14px;
-  line-height: 18px;
-  text-transform: uppercase;
-  display: block;
-  background-color: var(--light-blue);
-  width: 130px;
-  height: 130px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  padding-top: 41px;
-  z-index: 50;
 }
 
-section.user-articles .post-date span {
-  font-size: 50px;
-  line-height: 35px;
-  display: block;
-  padding-bottom: 5px;
-}
-
-section.user-articles p {
-  font-size: 16px;
+section.user-articles article .post-details .post-title {
+  font-family: "Noto Serif", serif;
+  font-size: 22px;
   line-height: 30px;
-  font-weight: 500;
+  font-weight: 600;
   margin: 20px 0;
 }
 
+section.user-articles article .post-details .post-date {
+  color: #5f5e5e;
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
 section.user-articles a {
+  color: var(--dark-grey);
   text-decoration: none;
   font-size: 16px;
+}
+
+section.user-articles a:hover,
+section.user-articles article .post-options .post-edits a:hover {
+  color: #8ab5d8;
+  transition: 0.2s all ease-in-out;
+}
+
+section.user-articles article .post-options {
+  margin-top: 20px;
+}
+
+section.user-articles article .post-options .post-edits a {
+  margin-left: 10px;
+  color: #5f5e5e;
+}
+
+section.user-articles article .fa {
+  font-size: 20px;
 }
 
 /*
@@ -922,7 +935,7 @@ ARTICLES
 .blog-header h3 {
   font-family: "Noto Serif", serif;
   font-style: italic;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .blog-header h4 {
@@ -1011,7 +1024,7 @@ section.form-container form {
 
 section.form-container form img {
   width: 100%;
-  max-width: 60px;
+  max-width: 70px;
   height: auto;
   margin: 20px auto;
 }
