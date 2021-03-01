@@ -25,9 +25,9 @@ public class User {
     @JoinColumn(name = "user_id")
     private List<Post> posts;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
-    private List<Product> products;
+//    @OneToMany(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "user_id")
+//    private List<Product> products;
 
     public User(){
         super();
