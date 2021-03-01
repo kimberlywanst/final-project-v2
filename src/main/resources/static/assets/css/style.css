@@ -608,25 +608,32 @@ PROFILE PAGE
 
 section.user-profile {
   display: flex;
-  margin: 80px 0;
-  padding: 60px;
-  border: 1px solid #404040;
-  border-color: var(--dark-grey);
-  border-radius: 5px;
-  box-shadow: #a3cef1 10px 12px;
+  justify-content: space-around;
+  align-items: center;
+  background: #fff;
+  box-shadow: 0 14px 28px var(--light-blue), 0 10px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  padding: 30px;
+  margin-bottom: 50px;
+  width: 100%;
+  max-width: 550px;
 }
 
 section.user-profile .profile-image {
-  margin-right: 60px;
-}
-
-section.user-profile .profile-image img {
-  width: 200px;
+  display: inline-block;
+  background-color: #5de6de;
+  background-image: linear-gradient(315deg, #5de6de 0%, #b58ecc 74%);
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  margin-right: 50px;
 }
 
 section.user-profile .profile-info {
   display: flex;
   flex-direction: column;
+  margin-right: 30px;
+  flex-grow: 1;
 }
 
 section.user-profile .profile-info h3 {
@@ -641,6 +648,10 @@ section.user-profile .profile-social {
 
 section.user-profile .profile-social p {
   padding-right: 15px;
+}
+
+section.user-profile .write-post {
+  display: flex;
 }
 
 section.user-profile button {
@@ -665,56 +676,59 @@ section.user-articles {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-section.user-articles h2 {
-  font-family: "Noto Serif", serif;
-  padding-bottom: 20px;
+  text-align: center;
 }
 
 section.user-articles article {
-  margin-bottom: 70px;
+  margin-bottom: 40px;
 }
 
-section.user-articles article img {
-  position: relative;
-}
-
-section.user-articles .post-date {
+section.user-articles article .post-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   text-align: center;
-  color: var(--light-grey);
-  font-weight: 800;
-  font-size: 14px;
-  line-height: 18px;
-  text-transform: uppercase;
-  display: block;
-  background-color: var(--light-blue);
-  width: 130px;
-  height: 130px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  padding-top: 41px;
-  z-index: 50;
 }
 
-section.user-articles .post-date span {
-  font-size: 50px;
-  line-height: 35px;
-  display: block;
-  padding-bottom: 5px;
-}
-
-section.user-articles p {
-  font-size: 16px;
+section.user-articles article .post-details .post-title {
+  font-family: "Noto Serif", serif;
+  font-size: 22px;
   line-height: 30px;
-  font-weight: 500;
+  font-weight: 600;
   margin: 20px 0;
 }
 
+section.user-articles article .post-details .post-date {
+  color: #5f5e5e;
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
 section.user-articles a {
+  color: var(--dark-grey);
   text-decoration: none;
   font-size: 16px;
+}
+
+section.user-articles a:hover,
+section.user-articles article .post-options .post-edits a:hover {
+  color: #8ab5d8;
+  transition: 0.2s all ease-in-out;
+}
+
+section.user-articles article .post-options {
+  margin-top: 20px;
+}
+
+section.user-articles article .post-options .post-edits a {
+  margin-left: 10px;
+  color: var(--light-blue);
+  /* color: #5f5e5e; */
+}
+
+section.user-articles article .fa {
+  font-size: 20px;
 }
 
 /*
@@ -740,9 +754,13 @@ PUBLISH PAGE
   font-family: "Noto Serif", serif;
 }
 
-.section-publish .publish-area .publish-right {
+.publish-right {
   display: flex;
   align-items: center;
+}
+
+.publish-right .publish-button {
+  margin-right: 20px;
 }
 
 .section-publish .publish-image {
@@ -750,13 +768,23 @@ PUBLISH PAGE
   margin-bottom: 10px;
 }
 
-/* .section-publish .upload-image label {
+.section-publish .upload-image {
+  margin-bottom: 20px;
+}
+
+.section-publish .upload-image label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  width: max-content;
   color: var(--light-blue);
   cursor: pointer;
-} */
+}
 
 .section-publish .upload-image label .fa {
   font-size: 25px;
+  padding-right: 10px;
 }
 
 .section-publish .upload-image label:hover {
@@ -764,11 +792,16 @@ PUBLISH PAGE
   transition: 0.2s all ease-in-out;
 }
 
-/* .section-publish .upload-image input#image {
-  display: none;
-} */
+.section-publish .upload-image label:active {
+  color: #8ab5d8;
+  transition: 0.2s all ease-in-out;
+}
 
-.section-publish .publish-button,
+.section-publish .upload-image input#image {
+  display: none;
+}
+
+.publish-right .publish-button,
 .section-publish .upload-image .upload-button {
   background: var(--light-blue);
   border: none;
@@ -777,10 +810,9 @@ PUBLISH PAGE
   font-weight: 600;
   letter-spacing: 1px;
   padding: 10px;
-  margin-left: 25px;
 }
 
-.section-publish .publish-button:hover {
+.publish-right .publish-button:hover {
   background: #8ab5d8;
   transition: 0.2s all ease-in-out;
 }
@@ -895,22 +927,20 @@ ARTICLES
   display: block;
 }
 
-.blog-header h3 span {
-  color: var(--light-blue);
-}
-
 .blog-header h2 {
   font-size: 36px;
   font-weight: 800;
   font-family: "Noto Serif", serif;
-  padding: 0 200px;
+}
+
+.blog-header h3 {
+  font-family: "Noto Serif", serif;
+  font-style: italic;
+  font-size: 20px;
 }
 
 .blog-header h4 {
-  font-family: "Noto Serif", serif;
-  font-style: italic;
-  font-size: 18px;
-  padding-top: 10px;
+  font-size: 16px;
 }
 
 .blog-header h5 {
@@ -921,8 +951,14 @@ ARTICLES
   padding-top: 15px;
 }
 
-.blog-details .enter-content {
+.blog-details .post-details figure {
+  display: flex;
+  justify-content: center;
+}
+
+.blog-details .post-details .enter-content {
   margin-top: 62px;
+  padding: 0 120px;
 }
 
 .blog-details .enter-content h5 {
@@ -989,9 +1025,9 @@ section.form-container form {
 
 section.form-container form img {
   width: 100%;
-  max-width: 100px;
+  max-width: 70px;
   height: auto;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 
 section.form-container form h1 {
