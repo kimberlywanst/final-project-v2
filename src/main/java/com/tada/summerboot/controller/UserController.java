@@ -1,7 +1,7 @@
 package com.tada.summerboot.controller;
 
 import com.tada.summerboot.model.Post;
-import com.tada.summerboot.model.Product;
+//import com.tada.summerboot.model.Product;
 import com.tada.summerboot.model.User;
 import com.tada.summerboot.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;

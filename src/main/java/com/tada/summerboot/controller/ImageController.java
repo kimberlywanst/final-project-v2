@@ -1,9 +1,9 @@
 package com.tada.summerboot.controller;
 
 import com.tada.summerboot.model.Post;
-import com.tada.summerboot.model.Product;
+//import com.tada.summerboot.model.Product;
 import com.tada.summerboot.service.PostServiceImpl;
-import com.tada.summerboot.service.ProductServiceImpl;
+//import com.tada.summerboot.service.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -19,8 +19,8 @@ public class ImageController {
     @Autowired
     PostServiceImpl post_service_implementation;
 
-    @Autowired
-    ProductServiceImpl product_service_implementation;
+//    @Autowired
+//    ProductServiceImpl product_service_implementation;
 
     // Getting from database system
     // Facilitate using of other file-system image storage like Amazon S3
@@ -33,9 +33,9 @@ public class ImageController {
 
     // Getting from database system
     // Facilitate using of other file-system image storage like Amazon S3
-    @GetMapping(value = "product/images/{id}")
-    public ResponseEntity<byte[]> fromClasspathAsResEntityForProduct(@PathVariable Integer id) throws IOException {
-        Optional<Product> product = product_service_implementation.getProduct(id);
-        return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(product.get().getImage());
-    }
+//    @GetMapping(value = "product/images/{id}")
+//    public ResponseEntity<byte[]> fromClasspathAsResEntityForProduct(@PathVariable Integer id) throws IOException {
+//        Optional<Product> product = product_service_implementation.getProduct(id);
+//        return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(product.get().getImage());
+//    }
 }
