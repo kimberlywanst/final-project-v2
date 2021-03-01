@@ -23,19 +23,44 @@
             <nav role="header-nav" class="navy">
                 <ul>
                     <li class="nav-active">
-                        <a href="index.html" title="Home">Home</a>
+                        <a href="/" title="Home">Home</a>
                     </li>
                     <li>
                         <a href="pages/about.html" title="About">About</a>
                     </li>
                     <li>
-                        <a href="pages/profile.html" title="Profile">Profile</a>
+                            <div sec:authorize="isAuthenticated()">
+                                <a href="/individual-post" title="Profile">Profile</a>
+
+                            </div>
+
+
+                            <div sec:authorize="isAnonymous()">
+                                <p hidden>Profile</p>
+                            </div>
                     </li>
                     <li>
-                        <a href="pages/login.html" title="Login">Login</a>
+                            <div sec:authorize="isAuthenticated()">
+                                <a href="/post-image" title="Publish">Publish</a>
+
+                            </div>
+
+
+                            <div sec:authorize="isAnonymous()">
+                                <p hidden>Publish</p>
+                            </div>
                     </li>
                     <li>
-                        <a href="pages/login.html" title="Logout">Logout</a>
+                            <div sec:authorize="isAuthenticated()">
+                                <form th:action="@{/logout}" method="post">
+                                    <input type="submit" value="Sign Out" class="nav-link" style="background-color: transparent; border: 0px;"/>
+                                </form>
+                            </div>
+
+
+                            <div sec:authorize="isAnonymous()">
+                                <a class="nav-link" href="/login">Sign in</a>
+                            </div>
                     </li>
                 </ul>
             </nav>
