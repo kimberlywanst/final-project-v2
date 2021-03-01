@@ -92,15 +92,14 @@
 
         <!-- First column -->
         <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid">
-          <ul th:each="post : ${posts}" class="grid-lod effect-2" id="grid">
+          <ul th:each="post, stats : ${posts}" class="grid-lod effect-2" id="grid">
             <li>
               <figure class="effect-oscar">
                 <img th:src="${post.imageURL}" class="img-responsive" />
 
                 <figcaption>
                   <h2 th:text="${post.title}">Title</h2>
-                  <p th:text="${user.username}">User</p>
-                  <!-- <a th:href="@{/post/show/{id}(id=${post.id})}">View more</a> -->
+                  <p th:text="*{users[stats.index].username}">User</p>
                 </figcaption>
               </figure>
             </li>

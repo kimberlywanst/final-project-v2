@@ -62,10 +62,18 @@ public class PostController {
 
     @GetMapping(value="/every-posts-no-table")
     public String everypostWithoutTable(Model model){
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = user_service_implementation.current_user(auth.getName());
-        List<Post> list = post_service_implementation.findAllByUserId(user.getId());
+
+        List<Post> list = post_service_implementation.getAllPosts(); // get all the posts
+        List<User> userList = new ArrayList<>(); // prepare an empty list
+
+        for (int i = 0; i < list.size(); i++) {
+            Post post = list.get(i);
+            Optional<User> user = user_service_implementation.getUser(post.getUser_id()); // get the user object
+            userList.add(user.get()); // add it to the userList
+        }
+
         model.addAttribute("posts", list);
+        model.addAttribute("users", userList); // make it available via users variable. Use stats.index to access specific index.
 
         return "every-posts-no-table";
     }
