@@ -28,48 +28,18 @@
   </head>
 
   <body>
+<form
+      action="#"
+      th:action="@{/post/image/new}"
+      th:object="${post}"
+      method="post"
+      enctype="multipart/form-data"
+    >
     <header th:replace="/fragments/navHeader.html :: navHeader">
-<!--      <div class="container">-->
-<!--        <h1 role="logo">-->
-<!--          <a href="../index.html" title="KAI"-->
-<!--            ><img-->
-<!--              src="/assets/images/kai-logo.png"-->
-<!--              class="img-fluid"-->
-<!--              title="KAI logo"-->
-<!--              alt="KAI logo"-->
-<!--          /></a>-->
-<!--        </h1>-->
 
-<!--        <div class="header-nav-wrapper"></div>-->
 
-<!--        <nav role="header-nav" class="navy">-->
-<!--          <ul>-->
-<!--            <li>-->
-<!--              <a href="../index.html" title="Home">Home</a>-->
-<!--            </li>-->
-<!--            <li>-->
-<!--              <a href="about.html" title="About">About</a>-->
-<!--            </li>-->
-<!--            <li>-->
-<!--              <a href="pages/profile.html" title="Profile">Profile</a>-->
-<!--            </li>-->
-<!--            <li>-->
-<!--              <a href="../../templates/login.html" title="Login">Login</a>-->
-<!--            </li>-->
-<!--          </ul>-->
-<!--        </nav>-->
-<!--      </div>-->
-    </header>
-
-    <main role="main-inner-wrapper" class="container">
-      <section class="section-publish">
-        <form
-          action="#"
-          th:action="@{/post/image/new}"
-          th:object="${post}"
-          method="post"
-          enctype="multipart/form-data"
-        >
+      <main role="main-inner-wrapper" class="container">
+        <section class="section-publish">
           <div class="publish-area">
             <input
               class="publish-title"
@@ -78,21 +48,20 @@
               th:field="*{title}"
               placeholder="Title"
             />
-
-            <div class="publish-right">
-              <button type="submit" class="publish-button">Publish</button>
-            </div>
           </div>
           <hr />
 
           <div class="upload-image">
-            <label class="upload-button" for="image">Upload image</label>
-            <input
-              id="image"
-              type="file"
-              name="image"
-              accept="image/png, image/jpeg"
-            />
+            <label class="upload-button" for="image">
+              <input
+                id="image"
+                type="file"
+                name="image"
+                accept="image/png, image/jpeg"
+              />
+              <i class="fa fa-picture-o" aria-hidden="true"></i>
+              Upload image
+            </label>
           </div>
           <!-- Medium editor -->
           <textarea
@@ -108,10 +77,9 @@
             th:value="${user.id}"
           />
           <input type="hidden" id="id" name="id" th:value="${post.id}" />
-        </form>
-      </section>
-    </main>
-
+        </section>
+      </main>
+    </form>
     <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
     <script src="/assets/js/publish.js"></script>
     <script src="/assets/js/jquery.min.js"></script>
