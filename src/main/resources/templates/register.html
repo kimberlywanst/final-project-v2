@@ -11,7 +11,7 @@
     />
     <meta charset="utf-8" />
     <meta name="description" content="" />
-    <title>KAI | Login</title>
+    <title>KAI | Register</title>
     <link
       rel="shortcut icon"
       href="../assets/images/kai-favicon.ico"
@@ -26,33 +26,45 @@
     <link href="../assets/css/effects/normalize.css" rel="stylesheet" />
     <link href="../assets/css/effects/component.css" rel="stylesheet" />
   </head>
-
   <body>
     <div th:insert="fragments/navHeader.html :: navHeader"></div>
 
     <main role="main-inner-wrapper" class="container">
-      <div class="row form-container-outer">
-        <div th:if="${param.error}">Invalid username and password.</div>
-        <div th:if="${param.logout}">You have been logged out.</div>
-
+      <div class="row">
         <section class="form-container col-md-6">
-          <form th:action="@{/login}" method="post">
+          <form th:action="@{/user/new}" th:object="${user}" method="post">
             <img
               src="assets/images/kai-icon.png"
               class="img-fluid"
               title="KAI icon"
               alt="KAI icon"
             />
-            <h1>Welcome back</h1>
+            <h1>Create Account</h1>
             <label for="username">Username</label>
-            <input type="text" name="username" id="username" />
+            <input
+              th:field="*{username}"
+              type="text"
+              name="username"
+              id="username"
+            />
+            <label for="email">Email</label>
+            <input th:field="*{email}" type="email" name="email" id="email" />
+
             <label for="password">Password</label>
-            <input type="password" name="password" id="password" />
-            <button type="submit">Login</button>
-            <p>Don't have an account?</p>
+            <input
+              th:field="*{password}"
+              type="password"
+              name="password"
+              id="password"
+            />
+            <label>Confirm Password</label>
+            <input type="password" name="retype_password" />
+            <button type="submit">Sign Up</button>
+            <p>Existing user?</p>
             <p>
-              <a href="/register">Sign up here</a>
+              <a href="login.html">Login here</a>
             </p>
+            <input type="hidden" th:value="user" th:attr="name='userType'" />
           </form>
         </section>
       </div>
