@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
@@ -65,6 +66,7 @@ public class PostController {
         User user = user_service_implementation.current_user(auth.getName());
         List<Post> list = post_service_implementation.findAllByUserId(user.getId());
         model.addAttribute("posts", list);
+
         return "every-posts-no-table";
     }
 
@@ -88,11 +90,14 @@ public class PostController {
 //        return "individual-post";
 //    }
 
-    @GetMapping(value="/every-posts") // it will be set to be /product
+    @GetMapping(value="/") // it will be set to be /product
     public String everyposts(Model model){
         List<Post> posts = post_service_implementation.getAllPosts();
+        List<User> users = new ArrayList<>();
+
+
         model.addAttribute("posts", posts); // this will pass the value to a ${user}
-        return "every-postsX";
+        return "index";
     }
 
     @GetMapping(value="/post") // it will be set to be /product
