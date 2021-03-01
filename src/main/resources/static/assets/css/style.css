@@ -723,7 +723,8 @@ section.user-articles article .post-options {
 
 section.user-articles article .post-options .post-edits a {
   margin-left: 10px;
-  color: #5f5e5e;
+  color: var(--light-blue);
+  /* color: #5f5e5e; */
 }
 
 section.user-articles article .fa {

@@ -93,7 +93,11 @@
               <h2 th:text="${post.title}" class="post-title"></h2>
               <p class="post-date">
                 <i class="fa fa-calendar-o"></i>
-                <span th:text="${post.timestamp}"></span>
+                <!-- <span th:text="${#post.timestamp.format(sprint.releaseDate, 'dd-MMM-yyyy')}"></span> -->
+
+                <span
+                  th:text="${#dates.format(post.timestamp, 'dd-MMM-yyyy')}"
+                ></span>
               </p>
             </div>
             <a th:href="@{posts/show-username/{id}(id=${post.id})}"

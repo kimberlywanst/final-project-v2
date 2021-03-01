@@ -63,7 +63,7 @@
           <header role="blog-header" class="blog-header text-center">
             <h2 th:text="${post.title}"></h2>
             <h3>by <span th:text="${user.username}"></span></h3>
-            <h4 th:text="${post.timestamp}"></h4>
+            <h4 th:text="${#dates.format(post.timestamp, 'dd-MMM-yyyy')}"></h4>
           </header>
 
           <figure>
