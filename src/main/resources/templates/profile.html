@@ -10,51 +10,21 @@
     <title>KAI | Profile</title>
     <link
             rel="shortcut icon"
-            href="../assets/images/kai-favicon.ico"
+            href="/assets/images/kai-favicon.ico"
             type="image/icon type"
     />
-    <link href="../assets/css/style.css" rel="stylesheet" />
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="../assets/css/responsive.css" rel="stylesheet" />
-    <link href="../assets/css/fonts.css" rel="stylesheet" />
-    <link href="../assets/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="../assets/css/effects/grid.css" rel="stylesheet" />
-    <link href="../assets/css/effects/normalize.css" rel="stylesheet" />
-    <link href="../assets/css/effects/component.css" rel="stylesheet" />
+    <link href="/assets/css/style.css" rel="stylesheet" />
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/assets/css/responsive.css" rel="stylesheet" />
+    <link href="/assets/css/fonts.css" rel="stylesheet" />
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/assets/css/effects/grid.css" rel="stylesheet" />
+    <link href="/assets/css/effects/normalize.css" rel="stylesheet" />
+    <link href="/assets/css/effects/component.css" rel="stylesheet" />
 </head>
 
 <body>
 <header th:replace="/fragments/navHeader.html :: navHeader">
-    <!--      <div class="container">-->
-    <!--        <h1 role="logo">-->
-    <!--          <a href="../index.html" title="KAI"-->
-    <!--            ><img-->
-    <!--              src="../assets/images/kai-logo.png"-->
-    <!--              class="img-fluid"-->
-    <!--              title="KAI logo"-->
-    <!--              alt="KAI logo"-->
-    <!--          /></a>-->
-    <!--        </h1>-->
-
-    <!--        <div class="header-nav-wrapper"></div>-->
-
-    <!--        <nav role="header-nav" class="navy">-->
-    <!--          <ul>-->
-    <!--            <li>-->
-    <!--              <a href="../index.html" title="Home">Home</a>-->
-    <!--            </li>-->
-    <!--            <li>-->
-    <!--              <a href="about.html" title="About">About</a>-->
-    <!--            </li>-->
-    <!--            <li class="nav-active">-->
-    <!--              <a href="profile.html" title="Profile">Profile</a>-->
-    <!--            </li>-->
-    <!--            <li>-->
-    <!--              <a href="login.html" title="Login">Login</a>-->
-    <!--            </li>-->
-    <!--          </ul>-->
-    <!--        </nav>-->
-    <!--      </div>-->
 </header>
 
 <main role="main-inner-wrapper" class="container">
@@ -100,8 +70,10 @@
                     </p>
                 </div>
                 <a th:href="@{posts/show-username/{id}(id=${post.id})}"
-                ><img th:src="${post.imageURL}" alt="" class="img-responsive"
-                /></a>
+                >
+                    <img th:src="'/post/images/' + ${post.id}" alt="" width="40" height="40"/>
+<!--                    <img th:src="${post.imageURL}" alt="" class="img-responsive"/>-->
+                </a>
 
                 <div class="post-options">
                     <a th:href="@{posts/show-username/{id}(id=${post.id})}">
