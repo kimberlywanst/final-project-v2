@@ -9,17 +9,27 @@
 <body>
 <footer th:fragment="footer" role="footer">
     <h1 role="logo">
-        <a href="index.html" title="KAI"><img src="/assets/images/kai-logo.png" title="KAI logo"
-                                                 alt="KAI logo" /></a>
+        <a href="/" title="KAI"><img src="/assets/images/kai-logo.png"
+                                     title="KAI logo"
+                                     alt="KAI logo" /></a>
     </h1>
 
     <nav role="footer-nav">
         <ul>
-
             <li><a href="/" title="Home">Home</a></li>
             <li><a href="/about" title="About">About</a></li>
-            <li><a href="/login" title="Login">Login</a></li>
-        </ul>
+            <li>
+                <div sec:authorize="isAuthenticated()">
+                 <form th:action="@{/logout}" method="post">
+                    <input type="submit" value="SIGN OUT" class="nav-link" style="background-color: transparent; border: 0px;"/>
+                 </form>
+                </div>
+
+
+                <div sec:authorize="isAnonymous()">
+                    <a class="nav-link" href="/login">Sign in</a>
+                </div>
+            </li>
         </ul>
     </nav>
 

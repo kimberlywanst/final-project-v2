@@ -57,6 +57,7 @@ public class PostController {
             Optional<User> user = user_service_implementation.getUser(post.getUser_id()); // get the user object
             userList.add(user.get()); // add it to the userList
         }
+
         model.addAttribute("posts", list);
         model.addAttribute("users", userList); // make it available via users variable. Use stats.index to access specific index.
 
@@ -89,14 +90,15 @@ public class PostController {
     }
 
     @PostMapping(path="post/image/new")
-    public String newPostWithImage(@RequestParam(name="title", required = false) String title,
+    public String newPostWithImage(@RequestParam(name="id", required = false) Integer id,
+                                     @RequestParam(name="title", required = false) String title,
                                       @RequestParam(name="content", required = false) String content,
                                       @RequestParam(name="user_id", required = false) Integer user_id,
                                       @RequestParam(name="image") MultipartFile multipartFile) throws IOException {
 
-        Post new_post = new Post(title, content, user_id, multipartFile.getBytes(), new Timestamp(Calendar.getInstance().getTime().getTime()));
+        Post new_post = new Post(id, title, content, user_id, multipartFile.getBytes(), new Timestamp(Calendar.getInstance().getTime().getTime()));
         post_service_implementation.createOrUpdatePost(new_post);
-        return "examples/every-posts";
+        return "profile";
     }
 
     @GetMapping(path="/post/all", produces = { MediaType.APPLICATION_JSON_VALUE })
@@ -106,16 +108,16 @@ public class PostController {
     }
 
     // this is for form-data
-    @PostMapping(path="/post/new")
-    public String newPost(@RequestParam(name="id", required=false) Integer id,
-                          @RequestParam(name="title", required = false) String title,
-                          @RequestParam(name="content", required = false) String content,
-                          @RequestParam(name="user_id", required = false) Integer user_id,
-                          @RequestParam(name="imageURL", required = false) String imageURL) {
-
-        post_service_implementation.createOrUpdatePost(new Post(id, title, content, user_id, imageURL));
-        return "examples/every-posts";
-    }
+//    @PostMapping(path="/post/new")
+//    public String newPost(@RequestParam(name="id", required=false) Integer id,
+//                          @RequestParam(name="title", required = false) String title,
+//                          @RequestParam(name="content", required = false) String content,
+//                          @RequestParam(name="user_id", required = false) Integer user_id,
+//                          @RequestParam(name="imageURL", required = false) String imageURL) {
+//
+//        post_service_implementation.createOrUpdatePost(new Post(id, title, content, user_id, imageURL));
+//        return "examples/every-posts";
+//    }
 
     //this is for javascript
     @PostMapping(path="/post/json/new", produces = { MediaType.APPLICATION_JSON_VALUE })
@@ -153,7 +155,7 @@ public class PostController {
             System.out.println("The id is NULL");
             model.addAttribute("post", new Post());
         }
-        return "examples/post";
+        return "publish";
     }
 }
 
