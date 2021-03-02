@@ -23,8 +23,9 @@
   </head>
 
   <body>
-    <header th:replace="/fragments/navHeader.html :: navHeader">
-<!--      <div class="container">-->
+    <header th:replace="/fragments/navHeader.html :: navHeader">     </header>
+
+    <!--      <div class="container">-->
 <!--        <h1 role="logo">-->
 <!--          <a href="index.html" title="KAI"-->
 <!--            ><img-->
@@ -54,7 +55,6 @@
 <!--          </ul>-->
 <!--        </nav>-->
 <!--      </div>-->
-    </header>
 
     <main role="main-home-wrapper" class="container">
       <div class="row">
@@ -171,7 +171,7 @@
             <li>
               <figure class="effect-oscar">
                 <img
-                  src="assets/images/home-images/image-4.jpg"
+                  src="/assets/images/home-images/image-4.jpg"
                   alt=""
                   class="img-responsive"
                 />
@@ -187,7 +187,7 @@
             <li>
               <figure class="effect-oscar">
                 <img
-                  src="assets/images/index-images/stress.jpg"
+                  src="/assets/images/index-images/stress.jpg"
                   alt=""
                   class="img-responsive"
                 />
@@ -205,7 +205,7 @@
             <li>
               <figure class="effect-oscar">
                 <img
-                  src="assets/images/index-images/relationship-2.jpg"
+                  src="/assets/images/index-images/relationship-2.jpg"
                   alt=""
                   class="img-responsive"
                 />
@@ -223,7 +223,7 @@
             <li>
               <figure class="effect-oscar">
                 <img
-                  src="assets/images/index-images/grief.jpg"
+                  src="/assets/images/index-images/grief.jpg"
                   alt=""
                   class="img-responsive"
                 />
@@ -367,45 +367,46 @@
       </div>
     </div> -->
 
-    <footer role="footer">
-      <h1 role="logo">
-        <a href="index.html" title="KAI"
-          ><img
-            src="assets/images/kai-logo.png"
-            title="KAI logo"
-            alt="KAI logo"
-        /></a>
-      </h1>
+<!--    <footer role="footer">-->
+<!--      <h1 role="logo">-->
+<!--        <a href="index.html" title="KAI"-->
+<!--          ><img-->
+<!--            src="assets/images/kai-logo.png"-->
+<!--            title="KAI logo"-->
+<!--            alt="KAI logo"-->
+<!--        /></a>-->
+<!--      </h1>-->
 
-      <nav role="footer-nav">
-        <ul>
-          <li><a href="index.html" title="Home">Home</a></li>
-          <li><a href="pages/about.html" title="About">About</a></li>
-          <li><a href="pages/stories.html" title="Stories">Stories</a></li>
-          <li><a href="pages/login.html" title="Login">Login</a></li>
-        </ul>
-      </nav>
+<!--      <nav role="footer-nav">-->
+<!--        <ul>-->
+<!--          <li><a href="index.html" title="Home">Home</a></li>-->
+<!--          <li><a href="pages/about.html" title="About">About</a></li>-->
+<!--          <li><a href="pages/stories.html" title="Stories">Stories</a></li>-->
+<!--          <li><a href="pages/login.html" title="Login">Login</a></li>-->
+<!--        </ul>-->
+<!--      </nav>-->
 
-      <ul role="social-icons">
-        <li>
-          <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-        </li>
+<!--      <ul role="social-icons">-->
+<!--        <li>-->
+<!--          <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>-->
+<!--        </li>-->
 
-        <li>
-          <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-        </li>
+<!--        <li>-->
+<!--          <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>-->
+<!--        </li>-->
 
-        <li>
-          <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-        </li>
+<!--        <li>-->
+<!--          <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>-->
+<!--        </li>-->
 
-        <li>
-          <a href="#"><i class="fa fa-flickr" aria-hidden="true"></i></a>
-        </li>
-      </ul>
+<!--        <li>-->
+<!--          <a href="#"><i class="fa fa-flickr" aria-hidden="true"></i></a>-->
+<!--        </li>-->
+<!--      </ul>-->
 
-      <p class="copy-right">&copy; 2020 KAI All Rights Reserved</p>
-    </footer>
+<!--      <p class="copy-right">&copy; 2020 KAI All Rights Reserved</p>-->
+<!--    </footer>-->
+    <footer th:insert="/fragments/footer.html :: footer">     </footer>
 
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/nav.js"></script>
