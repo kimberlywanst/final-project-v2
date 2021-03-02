@@ -6,6 +6,8 @@ import javax.persistence.*;
 import lombok.Setter;
 import lombok.Getter;
 
+import java.sql.Timestamp;
+
 
 @Getter
 @Setter
@@ -18,6 +20,16 @@ public class Post {
     private String title;
     private String content;
     private String imageURL;
+    private Timestamp timestamp;
+
+    public Timestamp getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
+    }
+
 
     // Required for the @OneToMany relationship with a User
     @Column(name = "user_id")
@@ -49,11 +61,12 @@ public class Post {
         this.user_id = user_id;
     }
 
-    public Post(String title, String content, Integer user_id, byte[] image) {
+    public Post(String title, String content, Integer user_id, byte[] image, Timestamp timestamp) {
         this.title = title;
         this.content = content;
         this.user_id = user_id;
         this.image = image;
+        this.timestamp = timestamp;
     }
 
     public Post(String title, String content, Integer user_id, String imageURL) {
@@ -72,3 +85,5 @@ public class Post {
     }
 
 }
+
+//Lines 23/25/29/64/69 edited

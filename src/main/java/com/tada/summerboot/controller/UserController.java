@@ -30,7 +30,7 @@ public class UserController {
         String encodedPassword = passwordEncoder.encode(newUser.getPassword());
         newUser.setPassword(encodedPassword);
         user_service_implementation.createUser(newUser);
-        return "examples/every-users";
+        return "login";
     }
 
     @GetMapping(path="/login")
@@ -47,7 +47,7 @@ public class UserController {
 
     @GetMapping(path="/register")
     public String register(User newUser) {
-        return "examples/register";
+        return "register";
     }
 
     @GetMapping(path="/register-admin")

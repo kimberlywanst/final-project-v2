@@ -35,7 +35,7 @@
       method="post"
       enctype="multipart/form-data"
     >
-    <header th:replace="/fragments/navHeader.html :: navHeader">
+  <header th:replace="/fragments/navHeader.html :: navHeader"></header>
 
 
       <main role="main-inner-wrapper" class="container">
@@ -77,9 +77,13 @@
             th:value="${user.id}"
           />
           <input type="hidden" id="id" name="id" th:value="${post.id}" />
+
         </section>
       </main>
     </form>
+
+
+
     <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
     <script src="/assets/js/publish.js"></script>
     <script src="/assets/js/jquery.min.js"></script>
