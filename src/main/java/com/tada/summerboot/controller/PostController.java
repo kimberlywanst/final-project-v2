@@ -96,7 +96,7 @@ public class PostController {
 
         Post new_post = new Post(title, content, user_id, multipartFile.getBytes(), new Timestamp(Calendar.getInstance().getTime().getTime()));
         post_service_implementation.createOrUpdatePost(new_post);
-        return "examples/every-posts";
+        return "profile";
     }
 
     @GetMapping(path="/post/all", produces = { MediaType.APPLICATION_JSON_VALUE })
