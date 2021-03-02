@@ -23,38 +23,7 @@
   </head>
 
   <body>
-    <header th:replace="/fragments/navHeader.html :: navHeader">     </header>
-
-    <!--      <div class="container">-->
-<!--        <h1 role="logo">-->
-<!--          <a href="index.html" title="KAI"-->
-<!--            ><img-->
-<!--              src="assets/images/kai-logo.png"-->
-<!--              class="img-fluid"-->
-<!--              title="KAI logo"-->
-<!--              alt="KAI logo"-->
-<!--          /></a>-->
-<!--        </h1>-->
-
-<!--        <div class="header-nav-wrapper"></div>-->
-
-<!--        <nav role="header-nav" class="navy">-->
-<!--          <ul>-->
-<!--            <li class="nav-active">-->
-<!--              <a href="index.html" title="Home">Home</a>-->
-<!--            </li>-->
-<!--            <li>-->
-<!--              <a href="pages/about.html" title="About">About</a>-->
-<!--            </li>-->
-<!--            <li>-->
-<!--              <a href="pages/stories.html" title="Stories">Stories</a>-->
-<!--            </li>-->
-<!--            <li>-->
-<!--              <a href="pages/login.html" title="Login">Login</a>-->
-<!--            </li>-->
-<!--          </ul>-->
-<!--        </nav>-->
-<!--      </div>-->
+    <header th:insert="/fragments/navHeader.html :: navHeader">     </header>
 
     <main role="main-home-wrapper" class="container">
       <div class="row">
@@ -92,28 +61,26 @@
 
         <!-- First column -->
         <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid">
-          <ul th:each="post, stats : ${posts}" class="grid-lod effect-2" id="grid">
+<!--          <ul th:each="post,stats : ${posts}" class="grid-lod effect-2" id="grid">-->
+<!--            <li>-->
+<!--              <figure class="effect-oscar">-->
+<!--                <img th:src="${post.imageURL}" class="img-responsive" />-->
 
-          <!--          <ul th:each="post : ${posts}" class="grid-lod effect-2" id="grid">-->
-            <li>
-              <figure class="effect-oscar">
-                <img th:src="${post.imageURL}" class="img-responsive" />
+<!--                <figcaption>-->
+<!--                  <h2 th:text="${post.title}">Title</h2>-->
+<!--&lt;!&ndash;                  <p th:text="*{users[stats.index].username}">User</p>&ndash;&gt;-->
 
-                <figcaption>
-                  <h2 th:text="${post.title}">Title</h2>
-                  <p th:text="*{users[stats.index].username}">User</p>
-
-                  <!--                  <p th:text="${post.id}">User</p>-->
-                  <a th:href="@{/posts/show-username/{id}(id=${post.id})}">View more</a>
-                </figcaption>
-              </figure>
-            </li>
-          </ul>
+<!--                  &lt;!&ndash;                  <p th:text="${post.id}">User</p>&ndash;&gt;-->
+<!--                  <a th:href="@{/posts/show-username/{id}(id=${post.id})}">View more</a>-->
+<!--                </figcaption>-->
+<!--              </figure>-->
+<!--            </li>-->
+<!--          </ul>-->
         </section>
 
         <!-- Second column -->
         <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid">
-          <ul class="grid-lod effect-2" id="grid">
+          <ul class="grid-lod effect-2" id="gridX">
             <li>
               <figure class="effect-oscar">
                 <img
@@ -371,45 +338,6 @@
       </div>
     </div> -->
 
-<!--    <footer role="footer">-->
-<!--      <h1 role="logo">-->
-<!--        <a href="index.html" title="KAI"-->
-<!--          ><img-->
-<!--            src="assets/images/kai-logo.png"-->
-<!--            title="KAI logo"-->
-<!--            alt="KAI logo"-->
-<!--        /></a>-->
-<!--      </h1>-->
-
-<!--      <nav role="footer-nav">-->
-<!--        <ul>-->
-<!--          <li><a href="index.html" title="Home">Home</a></li>-->
-<!--          <li><a href="pages/about.html" title="About">About</a></li>-->
-<!--          <li><a href="pages/stories.html" title="Stories">Stories</a></li>-->
-<!--          <li><a href="pages/login.html" title="Login">Login</a></li>-->
-<!--        </ul>-->
-<!--      </nav>-->
-
-<!--      <ul role="social-icons">-->
-<!--        <li>-->
-<!--          <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>-->
-<!--        </li>-->
-
-<!--        <li>-->
-<!--          <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>-->
-<!--        </li>-->
-
-<!--        <li>-->
-<!--          <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>-->
-<!--        </li>-->
-
-<!--        <li>-->
-<!--          <a href="#"><i class="fa fa-flickr" aria-hidden="true"></i></a>-->
-<!--        </li>-->
-<!--      </ul>-->
-
-<!--      <p class="copy-right">&copy; 2020 KAI All Rights Reserved</p>-->
-<!--    </footer>-->
     <footer th:insert="/fragments/footer.html :: footer">     </footer>
 
     <script src="/assets/js/jquery.min.js"></script>
