@@ -138,7 +138,7 @@ public class PostController {
     @GetMapping(path="/post/delete/{id}")
     public String destroy(@PathVariable("id") Integer id) {
         post_service_implementation.deletePost(id);
-        return "examples/every-posts";
+        return "index";
     }
 
     @RequestMapping(path = {"post/edit", "post/edit/{id}"})
