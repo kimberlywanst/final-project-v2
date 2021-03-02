@@ -1,14 +1,14 @@
 package com.tada.summerboot.model;
 
-//import lombok.Getter;
-//import lombok.Setter;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.time.ZonedDateTime;
 
-//@Getter
-//@Setter
+@Getter
+@Setter
 @Entity
 public class Post {
 
@@ -19,6 +19,9 @@ public class Post {
     @Column(nullable = true) // allow null value in this column
     private String title;
 
+    @Column(nullable = true, columnDefinition="mediumblob")
+    private byte[] image;
+
     @Column(nullable = true, columnDefinition="TEXT") // allow null value in this column
     private String content;
 
@@ -28,6 +31,16 @@ public class Post {
 
     @Column(nullable = true) // allow null value in this column
     private Timestamp timestamp;
+
+    public Post(Integer id, String title, String content, Integer user_id, byte[] bytes, Timestamp timestamp) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.user_id = user_id;
+        this.image = bytes;
+        this.timestamp = timestamp;
+
+    }
 
     public Timestamp getTimestamp() {
         return timestamp;
