@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
-<head>
+  <head>
     <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, maximum-scale=1"
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
     />
     <meta charset="utf-8" />
     <meta name="description" content="" />
     <title>KAI | Profile</title>
     <link
-            rel="shortcut icon"
-            href="/assets/images/kai-favicon.ico"
-            type="image/icon type"
+      rel="shortcut icon"
+      href="/assets/images/kai-favicon.ico"
+      type="image/icon type"
     />
     <link href="/assets/css/style.css" rel="stylesheet" />
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
@@ -21,134 +21,134 @@
     <link href="/assets/css/effects/grid.css" rel="stylesheet" />
     <link href="/assets/css/effects/normalize.css" rel="stylesheet" />
     <link href="/assets/css/effects/component.css" rel="stylesheet" />
-</head>
+  </head>
 
-<body>
-<header th:replace="/fragments/navHeader.html :: navHeader">
-</header>
+  <body>
+    <header th:replace="/fragments/navHeader.html :: navHeader"></header>
 
-<main role="main-inner-wrapper" class="container">
-    <div class="row form-container-outer">
+    <main role="main-inner-wrapper" class="container">
+      <div class="row form-container-outer">
         <section class="user-profile col-md-6">
-            <div class="profile-image"></div>
-            <div class="profile-mobile">
-                <div class="profile-info">
-                    <h3 th:text="${user.username}"></h3>
-                    <h5>
-                        <i class="fa fa-map-marker" aria-hidden="true"></i> Singapore
-                    </h5>
+          <div class="profile-image"></div>
+          <div class="profile-mobile">
+            <div class="profile-info">
+              <h3 th:text="${user.username}"></h3>
+              <h5>
+                <i class="fa fa-map-marker" aria-hidden="true"></i> Singapore
+              </h5>
 
-                    <!-- <div class="profile-social">
+              <!-- <div class="profile-social">
                       <p>22 Followers</p>
                       <p>10 Posts</p>
                     </div> -->
-                </div>
-                <div class="write-post">
-                    <a href="/post-image"
-                    ><button><i class="fa fa-plus"></i> Write</button></a
-                    >
-                </div>
             </div>
+            <div class="write-post">
+              <a href="/post-image"
+                ><button><i class="fa fa-plus"></i> Write</button></a
+              >
+            </div>
+          </div>
         </section>
-    </div>
+      </div>
 
-    <section class="user-articles">
+      <section class="user-articles">
         <!-- <section th:switch="${posts}" class="user-articles"> -->
         <!-- <h2>Start sharing your story</h2> -->
         <!-- <h2 th:case="null">Start sharing your story</h2> -->
         <!-- <div th:case="*"> -->
         <div th:each="post : ${posts}">
-            <article>
+          <article>
+            <div class="post-details">
+              <h2 th:text="${post.title}" class="post-title"></h2>
+              <p class="post-date">
+                <i class="fa fa-calendar-o"></i>
+                <span
+                  th:text="${#dates.format(post.timestamp, 'dd-MMM-yyyy')}"
+                ></span>
+              </p>
+            </div>
+            <a th:href="@{posts/show-username/{id}(id=${post.id})}">
+              <img
+                th:src="'/post/images/' + ${post.id}"
+                class="img-responsive"
+                alt=""
+              />
+            </a>
 
-                <div class="post-details">
-                    <h2 th:text="${post.title}" class="post-title"></h2>
-                    <p class="post-date">
-                        <i class="fa fa-calendar-o"></i>
-                        <span
-                                th:text="${#dates.format(post.timestamp, 'dd-MMM-yyyy')}"
-                        ></span>
-                    </p>
-                </div>
-                <a th:href="@{posts/show-username/{id}(id=${post.id})}"
-                >
-                    <img th:src="'/post/images/' + ${post.id}" alt="" width="40" height="40"/>
-<!--                    <img th:src="${post.imageURL}" alt="" class="img-responsive"/>-->
+            <div class="post-options">
+              <a th:href="@{posts/show-username/{id}(id=${post.id})}">
+                View post &rarr;
+              </a>
+
+              <div class="post-edits">
+                <a th:href="@{post/edit/{id}(id=${post.id})}">
+                  <i class="fa fa-pencil"></i>
                 </a>
-
-                <div class="post-options">
-                    <a th:href="@{posts/show-username/{id}(id=${post.id})}">
-                        View post &rarr;
-                    </a>
-
-                    <div class="post-edits">
-                        <a th:href="@{post/edit/{id}(id=${post.id})}">
-                            <i class="fa fa-pencil"></i>
-                        </a>
-                        <a
-                                th:href="@{post/delete/{id}(id=${post.id})}"
-                                onclick="return confirm('Are you sure you want to delete this item')"
-                        >
-                            <i class="fa fa-trash"></i>
-                        </a>
-                    </div>
-                </div>
-            </article>
+                <a
+                  th:href="@{post/delete/{id}(id=${post.id})}"
+                  onclick="return confirm('Are you sure you want to delete this item')"
+                >
+                  <i class="fa fa-trash"></i>
+                </a>
+              </div>
+            </div>
+          </article>
         </div>
         <!-- </div> -->
-    </section>
-</main>
+      </section>
+    </main>
 
-<footer th:insert="/fragments/footer.html :: footer">     </footer>
+    <footer th:insert="/fragments/footer.html :: footer"></footer>
 
-<!--<footer role="footer">-->
-<!--    <h1 role="logo">-->
-<!--        <a href="../index.html" title="KAI"-->
-<!--        ><img-->
-<!--                src="../assets/images/kai-logo.png"-->
-<!--                title="KAI logo"-->
-<!--                alt="KAI logo"-->
-<!--        /></a>-->
-<!--    </h1>-->
+    <!--<footer role="footer">-->
+    <!--    <h1 role="logo">-->
+    <!--        <a href="../index.html" title="KAI"-->
+    <!--        ><img-->
+    <!--                src="../assets/images/kai-logo.png"-->
+    <!--                title="KAI logo"-->
+    <!--                alt="KAI logo"-->
+    <!--        /></a>-->
+    <!--    </h1>-->
 
-<!--    <nav role="footer-nav">-->
-<!--        <ul>-->
-<!--            <li><a href="../index.html" title="Work">Work</a></li>-->
-<!--            <li><a href="about.html" title="About">About</a></li>-->
-<!--            <li><a href="blog.html" title="Blog">Blog</a></li>-->
-<!--            <li><a href="contact.html" title="Contact">Contact</a></li>-->
-<!--        </ul>-->
-<!--    </nav>-->
+    <!--    <nav role="footer-nav">-->
+    <!--        <ul>-->
+    <!--            <li><a href="../index.html" title="Work">Work</a></li>-->
+    <!--            <li><a href="about.html" title="About">About</a></li>-->
+    <!--            <li><a href="blog.html" title="Blog">Blog</a></li>-->
+    <!--            <li><a href="contact.html" title="Contact">Contact</a></li>-->
+    <!--        </ul>-->
+    <!--    </nav>-->
 
-<!--    <ul role="social-icons">-->
-<!--        <li>-->
-<!--            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>-->
-<!--        </li>-->
+    <!--    <ul role="social-icons">-->
+    <!--        <li>-->
+    <!--            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>-->
+    <!--        </li>-->
 
-<!--        <li>-->
-<!--            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>-->
-<!--        </li>-->
+    <!--        <li>-->
+    <!--            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>-->
+    <!--        </li>-->
 
-<!--        <li>-->
-<!--            <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>-->
-<!--        </li>-->
+    <!--        <li>-->
+    <!--            <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>-->
+    <!--        </li>-->
 
-<!--        <li>-->
-<!--            <a href="#"><i class="fa fa-flickr" aria-hidden="true"></i></a>-->
-<!--        </li>-->
-<!--    </ul>-->
+    <!--        <li>-->
+    <!--            <a href="#"><i class="fa fa-flickr" aria-hidden="true"></i></a>-->
+    <!--        </li>-->
+    <!--    </ul>-->
 
-<!--    <p class="copy-right">&copy; 2020 KAI All Rights Reserved</p>-->
-<!--</footer>-->
+    <!--    <p class="copy-right">&copy; 2020 KAI All Rights Reserved</p>-->
+    <!--</footer>-->
 
-<script src="/assets/js/jquery.min.js"></script>
-<script src="/assets/js/nav.js"></script>
-<script src="/assets/js/custom.js"></script>
-<script src="/assets/js/bootstrap.min.js"></script>
-<script src="/assets/js/effects/masonry.pkgd.min.js"></script>
-<script src="/assets/js/effects/imagesloaded.js"></script>
-<script src="/assets/js/effects/classie.js"></script>
-<script src="/assets/js/effects/AnimOnScroll.js"></script>
-<script src="/assets/js/effects/modernizr.custom.js"></script>
-<script src="/assets/js/html5shiv.js"></script>
-</body>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/nav.js"></script>
+    <script src="/assets/js/custom.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/effects/masonry.pkgd.min.js"></script>
+    <script src="/assets/js/effects/imagesloaded.js"></script>
+    <script src="/assets/js/effects/classie.js"></script>
+    <script src="/assets/js/effects/AnimOnScroll.js"></script>
+    <script src="/assets/js/effects/modernizr.custom.js"></script>
+    <script src="/assets/js/html5shiv.js"></script>
+  </body>
 </html>
