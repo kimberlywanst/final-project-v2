@@ -24,7 +24,7 @@ public class SuccessHandler extends SavedRequestAwareAuthenticationSuccessHandle
                                         Authentication authentication) throws IOException, ServletException {
 
         // if there is referral
-        super.onAuthenticationSuccess(httpServletRequest, httpServletResponse, authentication);
+//        super.onAuthenticationSuccess(httpServletRequest, httpServletResponse, authentication);
 
         // else, redirect to its respective page
         //        UNCOMMENT SNIPPET #2
