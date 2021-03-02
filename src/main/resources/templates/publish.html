@@ -28,18 +28,17 @@
   </head>
 
   <body>
-<form
-      action="#"
-      th:action="@{/post/image/new}"
-      th:object="${post}"
-      method="post"
-      enctype="multipart/form-data"
-    >
-  <header th:replace="/fragments/navHeader.html :: navHeader"></header>
+    <header th:replace="/fragments/navHeader.html :: navHeader"></header>
 
-
-      <main role="main-inner-wrapper" class="container">
-        <section class="section-publish">
+    <main role="main-inner-wrapper" class="container">
+      <section class="section-publish">
+        <form
+          action="#"
+          th:action="@{/post/image/new}"
+          th:object="${post}"
+          method="post"
+          enctype="multipart/form-data"
+        >
           <div class="publish-area">
             <input
               class="publish-title"
@@ -48,6 +47,9 @@
               th:field="*{title}"
               placeholder="Title"
             />
+            <div class="publish-right">
+              <button type="submit" class="publish-button">Publish</button>
+            </div>
           </div>
           <hr />
 
@@ -77,13 +79,9 @@
             th:value="${user.id}"
           />
           <input type="hidden" id="id" name="id" th:value="${post.id}" />
-
-        </section>
-      </main>
-  <input type="submit"/>
-    </form>
-
-
+        </form>
+      </section>
+    </main>
 
     <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
     <script src="/assets/js/publish.js"></script>

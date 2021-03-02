@@ -754,7 +754,7 @@ PUBLISH PAGE
   font-family: "Noto Serif", serif;
 }
 
-.publish-right {
+.section-publish .publish-area .publish-right {
   display: flex;
   align-items: center;
 }
@@ -801,7 +801,7 @@ PUBLISH PAGE
   display: none;
 }
 
-.publish-right .publish-button,
+.section-publish .publish-button,
 .section-publish .upload-image .upload-button {
   background: var(--light-blue);
   border: none;
@@ -812,7 +812,7 @@ PUBLISH PAGE
   padding: 10px;
 }
 
-.publish-right .publish-button:hover {
+.section-publish .publish-button:hover {
   background: #8ab5d8;
   transition: 0.2s all ease-in-out;
 }
