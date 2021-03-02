@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
@@ -35,7 +36,7 @@ public class PostController {
         Optional <User> user = user_service_implementation.getUser( post.get().getUser_id());
         model.addAttribute("user", user.get());
         //$(user.username)?
-        return "examples/show-post-with-username";
+        return "show-post";
     }
 
     @GetMapping(value="post-image") // it will be set to be /product
@@ -46,12 +47,20 @@ public class PostController {
         return "publish";
     }
 
-    @GetMapping(value="/every-posts-no-table")
+    @GetMapping(value="/")
     public String everypostWithoutTable(Model model){
-        User user = user_service_implementation.current_user();
-        List<Post> list = post_service_implementation.findAllByUserId(user.getId());
+        List<Post> list = post_service_implementation.getAllPosts(); // get all the posts
+        List<User> userList = new ArrayList<>(); // prepare an empty list
+
+        for (int i = 0; i < list.size(); i++) {
+            Post post = list.get(i);
+            Optional<User> user = user_service_implementation.getUser(post.getUser_id()); // get the user object
+            userList.add(user.get()); // add it to the userList
+        }
         model.addAttribute("posts", list);
-        return "examples/every-posts-no-table";
+        model.addAttribute("users", userList); // make it available via users variable. Use stats.index to access specific index.
+
+        return "index";
     }
 
     @GetMapping(value="/every-posts-by-single-user")
