@@ -14,6 +14,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,7 +43,7 @@ public class PostController {
         User user = user_service_implementation.current_user();
         model.addAttribute("user", user);
         model.addAttribute("post", new Post());
-        return "examples/post-image";
+        return "publish";
     }
 
     @GetMapping(value="/every-posts-no-table")
@@ -57,7 +59,8 @@ public class PostController {
         User user = user_service_implementation.current_user();
         List<Post> list = post_service_implementation.findAllByUserId(user.getId());
         model.addAttribute("posts", list);
-        return "examples/every-posts-by-single-user";
+        model.addAttribute("user", user);
+        return "profile";
     }
 
     @GetMapping(value="/every-posts") // it will be set to be /product
@@ -82,7 +85,7 @@ public class PostController {
                                       @RequestParam(name="user_id", required = false) Integer user_id,
                                       @RequestParam(name="image") MultipartFile multipartFile) throws IOException {
 
-        Post new_post = new Post(title, content, user_id, multipartFile.getBytes());
+        Post new_post = new Post(title, content, user_id, multipartFile.getBytes(), new Timestamp(Calendar.getInstance().getTime().getTime()));
         post_service_implementation.createOrUpdatePost(new_post);
         return "examples/every-posts";
     }
@@ -144,3 +147,5 @@ public class PostController {
         return "examples/post";
     }
 }
+
+//line 88 edited
