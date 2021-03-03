@@ -47,7 +47,7 @@ public class PostController {
         return "publish";
     }
 
-    @GetMapping(value="/")
+    @GetMapping(value="/x")
     public String everypostWithoutTable(Model model){
         System.out.println("reached here /");
         List<Post> posts = post_service_implementation.getAllPosts(); // get all the posts
