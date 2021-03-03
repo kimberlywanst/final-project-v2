@@ -23,7 +23,11 @@
   </head>
 
   <body>
-    <header th:replace="/fragments/navHeader.html :: navHeader"></header>
+
+<!--    <header th:replace="/fragments/navHeader.html :: navHeader"></header>-->
+
+
+<!--<header th:replace="/fragments/navHeader.html :: navHeader"></header>-->
 
     <main role="main-home-wrapper" class="container">
       <div class="row">
@@ -64,7 +68,7 @@
           <ul
             th:each="post, stats : ${posts}"
             class="grid-lod effect-2"
-            id="grid"
+            id="gridX"
           >
             <li>
               <figure class="effect-oscar">
