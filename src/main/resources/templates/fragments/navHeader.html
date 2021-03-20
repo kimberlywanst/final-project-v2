@@ -9,9 +9,6 @@
     <title>Title</title>
   </head>
   <body>
-
-
-
     <header th:fragment="navHeader" role="header">
       <div class="container">
         <h1 role="logo">
@@ -36,15 +33,15 @@
             </li>
             <li>
               <span sec:authorize="isAuthenticated()">
-                <a href="/every-posts-by-single-user" title="Profile">Profile</a>
+                <a href="/every-posts-by-single-user" title="Profile"
+                  >Profile</a
+                >
               </span>
-
             </li>
             <li>
               <span sec:authorize="isAuthenticated()">
                 <a href="/post-image" title="Publish">Publish</a>
               </span>
-
             </li>
             <li>
               <span sec:authorize="isAuthenticated()">
@@ -66,8 +63,5 @@
         </nav>
       </div>
     </header>
-
-
-
   </body>
 </html>

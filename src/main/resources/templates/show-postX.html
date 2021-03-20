@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <title>
+      6 Ways Your Brain Changes When You Do - and Don't - Get Enough Sleep
+    </title>
+    <link
+      rel="shortcut icon"
+      href="../../assets/images/kai-favicon.ico"
+      type="image/icon type"
+    />
+    <link href="../../assets/css/style.css" rel="stylesheet" />
+    <link href="../../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../assets/css/responsive.css" rel="stylesheet" />
+    <link href="../../assets/css/fonts.css" rel="stylesheet" />
+    <link href="../../assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../../assets/css/effects/grid.css" rel="stylesheet" />
+    <link href="../../assets/css/effects/normalize.css" rel="stylesheet" />
+    <link href="../../assets/css/effects/component.css" rel="stylesheet" />
+  </head>
+
+  <body th:object="${post}">
+    <h1 th:text="${post.title}"></h1>
+
+    <header role="header">
+      <div class="container">
+        <h1 role="logo">
+          <a href="../../index.html" title="KAI"
+            ><img
+              src="../../assets/images/kai-logo.png"
+              class="img-fluid"
+              title="KAI logo"
+              alt="KAI logo"
+          /></a>
+        </h1>
+
+        <div class="header-nav-wrapper"></div>
+
+        <nav role="header-nav" class="navy">
+          <ul>
+            <li>
+              <a href="../index.html" title="Home">Home</a>
+            </li>
+            <li>
+              <a href="about.html" title="About">About</a>
+            </li>
+            <li class="nav-active">
+              <a href="profile.html" title="Profile">Profile</a>
+            </li>
+            <li>
+              <a href="login.html" title="Login">Login</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main role="main-inner-wrapper" class="container">
+      <div class="blog-details">
+        <article class="post-details" id="post-details">
+          <header role="blog-header" class="blog-header text-center">
+            <h2 th:text="${post.title}"></h2>
+            <!-- <h4 th:text="${user.username}"></h4> -->
+            <h3>Date</h3>
+          </header>
+
+          <figure>
+            <img th:src="${post.imageURL}" alt="" class="img-responsive" />
+          </figure>
+
+          <div th:text="${post.content}" class="enter-content"></div>
+        </article>
+      </div>
+    </main>
+
+    <!-- <form action="#" th:object="${post}" method="post">
+    <div>
+        <label for="title">Title</label>
+        <input type="text" th:field="*{title}"
+               id="title" placeholder="Title" />
+    </div>
+    <div>
+        <label for="content">Content</label>
+        <input type="text" th:field="*{content}"
+               id="content" placeholder="Content" />
+    </div>
+    <div>
+        <label for="imageURL">imageURL</label>
+        <input type="text" th:field="*{imageURL}"
+               id="imageURL" placeholder="imageURL" />
+    </div>
+
+    <input type="hidden" id="id" th:field="*{id}">
+</form> -->
+
+    <div>
+      <a href="/every-posts">Back to every posts</a>
+    </div>
+
+    <footer role="footer">
+      <h1 role="logo">
+        <a href="../../index.html" title="KAI"
+          ><img
+            src="../../assets/images/kai-logo.png"
+            title="KAI logo"
+            alt="KAI logo"
+        /></a>
+      </h1>
+
+      <nav role="footer-nav">
+        <ul>
+          <li><a href="../../index.html" title="Work">Work</a></li>
+          <li><a href="../about.html" title="About">About</a></li>
+          <li><a href="../blog.html" title="Blog">Blog</a></li>
+          <li><a href="../contact.html" title="Contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <ul role="social-icons">
+        <li>
+          <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+        </li>
+
+        <li>
+          <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+        </li>
+
+        <li>
+          <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+        </li>
+
+        <li>
+          <a href="#"><i class="fa fa-flickr" aria-hidden="true"></i></a>
+        </li>
+      </ul>
+
+      <p class="copy-right">&copy; 2020 KAI All Rights Reserved</p>
+    </footer>
+  </body>
+</html>

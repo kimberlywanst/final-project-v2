@@ -29,7 +29,7 @@ public class PostController {
     @Autowired
     UserServiceImpl user_service_implementation;
 
-    @GetMapping(path="/post/show-username/{id}", produces = { MediaType.APPLICATION_JSON_VALUE })
+    @GetMapping(path="/posts/show-username/{id}")
     public String showUserName(Model model, @PathVariable("id") Integer id) {
         System.out.println("reched here");
         Optional <Post> post = post_service_implementation.getPost(id);
@@ -38,6 +38,16 @@ public class PostController {
         model.addAttribute("user", user.get());
         return "show-post";
     }
+
+//    @GetMapping(path="/post/show-username/{id}", produces = { MediaType.APPLICATION_JSON_VALUE })
+//    public String showUserName(Model model, @PathVariable("id") Integer id) {
+//        Optional <Post> post = post_service_implementation.getPost(id);
+//        model.addAttribute("post", post.get());
+//        Optional <User> user = user_service_implementation.getUser( post.get().getUser_id());
+//        model.addAttribute("user", user.get());
+//        //$(user.username)?
+//        return "show-post-with-username";
+//    }
 
     @GetMapping(value="post-image") // it will be set to be /product
     public String postWithImage(Model model){
@@ -75,9 +85,21 @@ public class PostController {
         return "profile";
     }
 
-    @GetMapping(value="/every-posts") // it will be set to be /product
+//    @GetMapping(value="/individual-post")
+//    public String everypostByIndividual(Model model){
+//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//        User user = user_service_implementation.current_user(auth.getName());
+//        List<Post> list = post_service_implementation.findAllByUserId(user.getId());
+//        model.addAttribute("posts", list);
+//        return "individual-post";
+//    }
+
+    @GetMapping(value="/") // it will be set to be /product
     public String everyposts(Model model){
         List<Post> posts = post_service_implementation.getAllPosts();
+        List<User> users = new ArrayList<>();
+
+
         model.addAttribute("posts", posts); // this will pass the value to a ${user}
         return "examples/every-posts";
     }
@@ -143,6 +165,22 @@ public class PostController {
         return "redirect:/every-posts-by-single-user";
     }
 
+//    @GetMapping(path = "/post/edit/{id}")
+//    public String editPost(Model model, @PathVariable("id") Integer id)
+//    {
+//        if (id != null) { // when id is null, because it is not in the database
+////            Optional<Post> entity = post_service_implementation.getPost(id);
+////            model.addAttribute("post", entity.get());
+//            Optional<Post> post = post_service_implementation.getPost(id);
+//            Optional <User> user = user_service_implementation.getUser( post.get().getUser_id());
+//            model.addAttribute("user", user.get());
+//            model.addAttribute("post", post.get());
+//        } else { //else id is present, then we will just create a new entry in the database
+//            model.addAttribute("post", new Post());
+//        }
+//        return "post-image";
+//    }
+
     @RequestMapping(path = {"post/edit", "post/edit/{id}"})
     public String editPost(Model model, @PathVariable("id") Integer id)
     {
@@ -159,6 +197,8 @@ public class PostController {
         }
         return "publish";
     }
+
+
 }
 
 //line 88 edited
